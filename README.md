@@ -108,3 +108,4 @@ psql -U postgres -d gis -c "CREATE EXTENSION postgis_raster SCHEMA postgis"
 
 psql -U postgres -d gis -c "CREATE EXTENSION postgis_topology"
 ```
+![image](https://user-images.githubusercontent.com/88239150/174883083-f1b07f96-4acc-4203-b24c-f1d43960fe44.png)
