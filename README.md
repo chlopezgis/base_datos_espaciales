@@ -15,6 +15,11 @@
 <p>Es una extensión que convierte el sistema de administración de bases de datos PostgreSQL en una base de datos espacial.</p>
 
 ### ¿Cómo crear una base de datos espacial con PostGIS?
-A continuación, se explicará como crear una base de datos espacial utilizando PostGIS 2.0 en un sistema operativo windows 10.
+<p>A continuación, se explicará como crear una base de datos espacial utilizando PostGIS 2.0 en un sistema operativo windows 10.</p>
 
 #### 1. Establecer variable de Entorno.
+<p>Para el desarrollo de este tutorial utilizaremos las utilidades de línea de comando que provee PostgreSQL:</p>
+* **psql**: Cliente de línea de comando que permite escribir consultas de forma interactiva, enviarlas a PostgreSQL y ver los resultados de la consulta. Además, proporciona una serie de metacomandos y varias funciones similares a las de un shell para facilitar la escritura de scripts y la automatización de una amplia variedad de tareas.
+* **createdb**: Es una utilidad de línea de comandos que nos permite crear una base de datos.
+
+<p></p>
