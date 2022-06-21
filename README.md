@@ -27,6 +27,7 @@
 <p>Para utilizar las utilidades de PostgreSQL en sistemas operativos windows, es necesario configurar las variables de entorno del sistema.</p>
 
 1. Como primer paso, debemos identificar y copiar la ruta del directorio donde se almacenan estas utilidades (binarios y/o ejecutables). Este directorio depende de la instalación y la versión de postgreSQL, por lo general debe ser una ruta similar a la siguiente:
-**``C:\Program Files\PostgreSQL\14\bin```**
+
+**```C:\Program Files\PostgreSQL\14\bin```**
 
 
