@@ -34,5 +34,6 @@ C:\Program Files\PostgreSQL\14\bin
 
 2. Abrir las variables de entorno del sistema 
 
-![image](https://user-images.githubusercontent.com/88239150/174874920-e1cda344-221e-42e4-87a6-48278492daeb.png)
+![image](https://user-images.githubusercontent.com/88239150/174875175-37d190d2-83f8-44c8-9a62-9c085a0964a9.png)
+
 
