@@ -28,6 +28,6 @@
 
 1. Como primer paso, debemos identificar y copiar la ruta del directorio donde se almacenan estas utilidades (binarios y/o ejecutables). Este directorio depende de la instalación y la versión de postgreSQL, por lo general debe ser una ruta similar a la siguiente:
 
-**```ini
+```ini
 C:\Program Files\PostgreSQL\14\bin
-```**
+```
