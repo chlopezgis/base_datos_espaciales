@@ -60,8 +60,22 @@ createdb -U <username> <dbname>
 ![image](https://user-images.githubusercontent.com/88239150/174878240-48f68995-28a9-4c7a-b190-46c97bc16855.png)
 
 ### III. Configurar Base de Datos.
-<p>Antes de iniciar, es necesario conocer la sintaxis de como ejecutar consulta SQL con psql sin conectarse a la base de datos:</p>
+<p>Vamos a configurar la base de datos para instalar todas las funciones espaciales en un nuevo esquema. De esta manera, tendremos separada las funciones espaciales de otras funciones que se puedan crear en el esquema por defecto (Esquema **public**). Antes de iniciar, es necesario conocer la sintaxis para ejecutar consultas SQL con psql</p>
 
 ```
 psql -h <hostname> -U <username> -p <port> -d <dbname> -c "<QUERY>"
 ```
+1. Como primer paso, crearemos el esquema **postgis** que almacenará todas las funciones espaciales.
+
+```
+psql -U postgres -d gis -c "CREATE SCHEMA postgis"
+```
+![image](https://user-images.githubusercontent.com/88239150/174879918-70ce1909-a96a-4d76-8559-3a261597f834.png)
+
+2. Luego, procederemos a dar acceso a todos los usuarios al esquema **postgis**
+```
+psql -U postgres -d gis -c "GRANT USAGE ON SCHEMA postgis TO public"
+```
+![image](https://user-images.githubusercontent.com/88239150/174880441-13965065-2ffa-43fa-a7bd-a3e0d6d2a224.png)
+
+3. 
