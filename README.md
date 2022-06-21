@@ -49,13 +49,15 @@ C:\Program Files\PostgreSQL\14\bin
 <p>Ahora procederemos a crear una base de datos.</p>
 
 1. Abrir la consola de comandos de Windows.
-
-**Sintaxis**
+2. Ejecutar el comando **createdb**
 ```
 createdb -h <hostname> -p <port> -U <username> <dbname>
 ```
+Si se ejecuta desde el servidor podemos omitir el nombre del host y el puerto:
+```
+createdb -U <username> <dbname>
+```
 
-**Ejemplo**
-```
-createdb -h localhost -p 5432 -U postgres gis
-```
+
+
+
