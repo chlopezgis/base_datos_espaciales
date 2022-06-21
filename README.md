@@ -24,6 +24,7 @@
 
 * **createdb**: Es una utilidad de línea de comandos que permite crear una base de datos.
 
-<p>Para poder utilizar estas utilidades en sistemas operativo windows, es necesario configurar las variables de entorno del sistema:</p>
+<p>Para utilizar las utilidades de PostgreSQL en sistemas operativos windows, es necesario configurar las variables de entorno del sistema.</p>
 
-1. Primero, debemos saber donde se almacenan estas utilidades dentro del ordenador.
+* Como primer paso, debemos identificar el directorio donde se almacenan estas utilidades (binarios y/o ejecutables) dentro del ordenador. Este directorio depende de la instalación y la versión de postgreSQL, sin embargo, deberá ser una ruta similar a la siguiente:
+``C:\Program Files\PostgreSQL\14\bin``
