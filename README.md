@@ -36,4 +36,8 @@ C:\Program Files\PostgreSQL\14\bin
 
 ![image](https://user-images.githubusercontent.com/88239150/174875175-37d190d2-83f8-44c8-9a62-9c085a0964a9.png)
 
+3. En las **variables del sistema** seleccionar la variable **path** y luego dar clic en **Editar**.
+
+![image](https://user-images.githubusercontent.com/88239150/174875654-4564bbb0-d290-4530-b057-2405a7f985ba.png)
+
 
