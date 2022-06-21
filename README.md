@@ -29,12 +29,5 @@
 1. Como primer paso, debemos identificar y copiar la ruta del directorio donde se almacenan estas utilidades (binarios y/o ejecutables). Este directorio depende de la instalación y la versión de postgreSQL, por lo general debe ser una ruta similar a la siguiente:
 
 ```ini
-[C:\Program Files\PostgreSQL\14\bin]
+**C:\Program Files\PostgreSQL\14\bin**
 ```
-<table><tr><td bgcolor=#00000></td><font size='3' color="#F8F8F2" face="DejaVu Sans Mono" >C:\Program Files\PostgreSQL\14\bin</font></tr></table>
-<table><tr><td bgcolor=#00000>
-<ol>
-<li><font size='3' color="#66D9EF" face="DejaVu Sans Mono" >scrapy</font> <font size='3' color="#F8F8F2" face="DejaVu Sans Mono" >crawl </font><font size='3' color="#F92672" face="DejaVu Sans Mono" >spiderName -o test.json
-</font></li>
-<ol>
-</td></tr></table>
