@@ -85,8 +85,10 @@ psql -U postgres -d gis -c "ALTER DATABASE gis SET search_path = public,postgis,
 ![image](https://user-images.githubusercontent.com/88239150/174881104-809c70df-af0e-44e6-ae60-ea30b894dcb7.png)
 
 <p>Para verificar que el esquema se agrego a la ruta de búsqueda ejecutamos los siguiente</p>
+
 ```
 psql -U postgres -d gis -c "SHOW search_path"
 ```
+
 ![image](https://user-images.githubusercontent.com/88239150/174881513-55e4f04c-9ece-443d-97ad-089e4b8f6441.png)
 
