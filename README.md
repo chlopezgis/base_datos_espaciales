@@ -17,7 +17,7 @@
 ### ¿Cómo crear una base de datos espacial con PostGIS?
 <p>A continuación, se explicará como crear una base de datos espacial utilizando PostGIS 2.0 en un sistema operativo windows 10.</p>
 
-#### 1. Establecer variable de Entorno.
+#### I. Añadir variable de Entorno.
 <p>Para el desarrollo de este tutorial utilizaremos las utilidades de línea de comando que provee PostgreSQL:</p>
 
 * **psql**: Cliente de línea de comandos que permite comunicarnos con el servidor de PostgreSQL mediante sentencias SQL. Además, proporciona una serie de metacomandos y varias funciones similares a las de un shell para facilitar la escritura de scripts y la automatización de una amplia variedad de tareas.
@@ -44,3 +44,10 @@ C:\Program Files\PostgreSQL\14\bin
 
 ![image](https://user-images.githubusercontent.com/88239150/174876489-572e65db-63eb-466a-b216-e7e5693340db.png)
 
+#### II. Crear una Base de Datos.
+
+<p>Ahora procederemos a crear una base de datos.</p>
+
+```
+createdb -h <hostname> -p <port> -U <username> <dbname>
+```
