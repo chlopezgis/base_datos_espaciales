@@ -61,6 +61,7 @@ createdb -U <username> <dbname>
 
 ### III. Configurar Base de Datos.
 <p>Antes de iniciar, es necesario conocer la sintaxis de como ejecutar consulta SQL con psql sin conectarse a la base de datos:</p>
+
 ```
 psql -h <hostname> -U <username> -p <port> -d <dbname> -c "<QUERY>"
 ```
