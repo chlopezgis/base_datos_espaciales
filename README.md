@@ -20,8 +20,10 @@
 #### 1. Establecer variable de Entorno.
 <p>Para el desarrollo de este tutorial utilizaremos las utilidades de línea de comando que provee PostgreSQL:</p>
 
-* **psql**: Cliente de línea de comando que permite escribir consultas de forma interactiva, enviarlas a PostgreSQL y ver los resultados de la consulta. Además, proporciona una serie de metacomandos y varias funciones similares a las de un shell para facilitar la escritura de scripts y la automatización de una amplia variedad de tareas.
+* **psql**: Cliente de línea de comandos que permite comunicarnos con el servidor de PostgreSQL mediante sentencias SQL. Además, proporciona una serie de metacomandos y varias funciones similares a las de un shell para facilitar la escritura de scripts y la automatización de una amplia variedad de tareas.
 
-* **createdb**: Es una utilidad de línea de comandos que nos permite crear una base de datos.
+* **createdb**: Es una utilidad de línea de comandos que permite crear una base de datos.
 
-<p></p>
+<p>Para poder utilizar estas utilidades en sistemas operativo windows, es necesario configurar las variables de entorno del sistema:</p>
+
+1. Primero, debemos saber donde se almacenan estas utilidades dentro del ordenador.
