@@ -9,7 +9,7 @@
 
 * **Tipo de datos espaciales**: Son tipos de datos que permiten almacenar y representar carácteristicas geográficas.
 * **Índices espaciales**: Es un tipo de índice extendido que permite indexar una columna espacial. Se utilizan para mejorar el rendimiento de consultas espaciales
-* **Funciones espaciales**: Utilizadas para consultar las propiedades y relaciones espaciales.
+* **Funciones espaciales**: Son funciones que permiten analizar componentes geométricos, determinar relaciones espaciales y manipular geometrías.
 
 ### ¿Qué es PostGIS?
-`xxxx`
+<p>Es una extensión que convierte el sistema de administración de bases de datos PostgreSQL en una base de datos espacial.</p>
