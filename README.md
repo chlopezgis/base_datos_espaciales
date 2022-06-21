@@ -92,3 +92,8 @@ psql -U postgres -d gis -c "SHOW search_path"
 
 ![image](https://user-images.githubusercontent.com/88239150/174881513-55e4f04c-9ece-443d-97ad-089e4b8f6441.png)
 
+### III. Crear extensiones espaciales
+<p>Una vez configurada la base de datos procederemos a crear las extensiones espaciales:</p>
+* **postgis**:
+* **postgis_raster**:
+* **postgis_topology**:
