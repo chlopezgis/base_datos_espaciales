@@ -7,6 +7,6 @@
 ### ¿Qué es una base de datos espacial?
 <p>Es una base de datos optimizada que permite almacenar y manipular objetos espaciales. Existen tres aspectos que asocian los datos espaciales con una base de datos: tipos de datos, índices y funciones.</p>
 
-* **Tipo de datos espaciales**: 
-* **Índices espaciales**: Es un tipo de índice extendido que permite indexar una columna espacial
+* **Tipo de datos espaciales**: Son tipos de datos que permiten almacenar y representar carácteristicas geográficas.
+* **Índices espaciales**: Es un tipo de índice extendido que permite indexar una columna espacial. Se utilizan para mejorar el rendimiento de consultas espaciales
 * **Funciones espaciales**: 
