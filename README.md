@@ -57,7 +57,4 @@ Si se ejecuta desde el servidor podemos omitir el nombre del host y el puerto:
 ```
 createdb -U <username> <dbname>
 ```
-
-
-
-
+![image](https://user-images.githubusercontent.com/88239150/174878240-48f68995-28a9-4c7a-b190-46c97bc16855.png)
