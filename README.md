@@ -40,4 +40,7 @@ C:\Program Files\PostgreSQL\14\bin
 
 ![image](https://user-images.githubusercontent.com/88239150/174875654-4564bbb0-d290-4530-b057-2405a7f985ba.png)
 
+4. En la ventana de Edición de Variables de Entorno, dar clic en el botón **Nuevo** y copiar la ruta en la **nueva línea**. Finalmente, dar clic en **Aceptar** todo.
+
+![image](https://user-images.githubusercontent.com/88239150/174876489-572e65db-63eb-466a-b216-e7e5693340db.png)
 
