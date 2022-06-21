@@ -78,4 +78,8 @@ psql -U postgres -d gis -c "GRANT USAGE ON SCHEMA postgis TO public"
 ```
 ![image](https://user-images.githubusercontent.com/88239150/174880441-13965065-2ffa-43fa-a7bd-a3e0d6d2a224.png)
 
-3. 
+3. Añadiremos el esquema **postgis** a la ruta de búsqueda de esquemas (**search_path**)
+```
+psql -U postgres -d gis -c "ALTER DATABASE gis SET search_path = public,postgis,contrib"
+```
+![image](https://user-images.githubusercontent.com/88239150/174881104-809c70df-af0e-44e6-ae60-ea30b894dcb7.png)
