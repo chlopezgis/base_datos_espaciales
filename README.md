@@ -50,14 +50,21 @@ C:\Program Files\PostgreSQL\14\bin
 
 1. Abrir la consola de comandos de Windows.
 2. Ejecutar el comando **createdb**
+
 ```
 createdb -h <hostname> -p <port> -U <username> <dbname>
 ```
+
 Si se ejecuta desde el servidor podemos omitir el nombre del host y el puerto:
+
 ```
 createdb -U <username> <dbname>
 ```
-![image](https://user-images.githubusercontent.com/88239150/174878240-48f68995-28a9-4c7a-b190-46c97bc16855.png)
+Entonces, crearemos la base de datos de nombre gis utilizando el superusuario postgres
+
+```
+createdb -U postgres gis
+```
 
 ### III. Configurar Base de Datos.
 <p>Vamos a configurar la base de datos para instalar todas las funciones espaciales en un nuevo esquema. De esta manera, tendremos separada las funciones espaciales de otras funciones que se puedan crear en el esquema por defecto (Esquema **public**). Antes de iniciar, es necesario conocer la sintaxis para ejecutar consultas SQL con psql</p>
@@ -70,27 +77,22 @@ psql -h <hostname> -U <username> -p <port> -d <dbname> -c "<QUERY>"
 ```
 psql -U postgres -d gis -c "CREATE SCHEMA postgis"
 ```
-![image](https://user-images.githubusercontent.com/88239150/174879918-70ce1909-a96a-4d76-8559-3a261597f834.png)
 
 2. Luego, procederemos a dar acceso a todos los usuarios al esquema **postgis**
 ```
 psql -U postgres -d gis -c "GRANT USAGE ON SCHEMA postgis TO public"
 ```
-![image](https://user-images.githubusercontent.com/88239150/174880441-13965065-2ffa-43fa-a7bd-a3e0d6d2a224.png)
 
 3. Añadiremos el esquema **postgis** a la ruta de búsqueda de esquemas (**search_path**)
 ```
 psql -U postgres -d gis -c "ALTER DATABASE gis SET search_path = public,postgis,contrib"
 ```
-![image](https://user-images.githubusercontent.com/88239150/174881104-809c70df-af0e-44e6-ae60-ea30b894dcb7.png)
 
 <p>Para verificar que el esquema se agrego a la ruta de búsqueda ejecutamos los siguiente</p>
 
 ```
 psql -U postgres -d gis -c "SHOW search_path"
 ```
-
-![image](https://user-images.githubusercontent.com/88239150/174881513-55e4f04c-9ece-443d-97ad-089e4b8f6441.png)
 
 ### III. Crear extensiones espaciales
 <p>Una vez configurada la base de datos crearemos las extensiones espaciales en el esquema **postgis**:</p>
@@ -108,4 +110,3 @@ psql -U postgres -d gis -c "CREATE EXTENSION postgis_raster SCHEMA postgis"
 
 psql -U postgres -d gis -c "CREATE EXTENSION postgis_topology"
 ```
-![image](https://user-images.githubusercontent.com/88239150/174883083-f1b07f96-4acc-4203-b24c-f1d43960fe44.png)
