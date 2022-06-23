@@ -38,15 +38,15 @@ C:\Program Files\PostgreSQL\14\bin
 
 2. Abrir las variables de entorno del sistema 
 
-![image](https://user-images.githubusercontent.com/88239150/174875175-37d190d2-83f8-44c8-9a62-9c085a0964a9.png)
+<p align="center"><img src = "https://user-images.githubusercontent.com/88239150/174875175-37d190d2-83f8-44c8-9a62-9c085a0964a9.png"/></p>
 
 3. En las **variables del sistema** seleccionar la variable **path** y luego dar clic en **Editar**.
 
-![image](https://user-images.githubusercontent.com/88239150/174875654-4564bbb0-d290-4530-b057-2405a7f985ba.png)
+<p align="center"><img src = "https://user-images.githubusercontent.com/88239150/174875654-4564bbb0-d290-4530-b057-2405a7f985ba.png"/></p>
 
 4. En la ventana de Edición de Variables de Entorno, dar clic en el botón **Nuevo** y copiar la ruta en la **nueva línea**. Finalmente, dar clic en **Aceptar** todo.
 
-![image](https://user-images.githubusercontent.com/88239150/174876489-572e65db-63eb-466a-b216-e7e5693340db.png)
+<p align="center"><img src = "https://user-images.githubusercontent.com/88239150/174876489-572e65db-63eb-466a-b216-e7e5693340db.png"/></p>
 
 ### II. Crear una Base de Datos.
 
@@ -65,7 +65,7 @@ Si el comando se ejecuta desde el servidor de la base de datos podemos omitir el
 createdb -U <username> <dbname>
 ```
 
-Entonces, crearemos la base de datos de nombre gis utilizando un usuario con permisos de creación de base de datos, para este ejemplo utilizaremos el superusuario *postgres*
+Entonces, crearemos la base de datos de nombre **gis** utilizando un usuario con permisos de creación de base de datos, para este ejemplo utilizaremos el superusuario **postgres**
 
 ```
 createdb -U postgres gis
@@ -73,13 +73,15 @@ createdb -U postgres gis
 
 ### III. Configurar Base de Datos.
 
-Vamos a configurar la base de datos para instalar todas las funciones espaciales en un nuevo esquema. De esta manera, tendremos separada las funciones espaciales de otras funciones que se puedan crear en el esquema por **public**. Antes de iniciar, es necesario conocer la sintaxis para ejecutar consultas SQL con psql.
+Vamos a configurar la base de datos para instalar todas las funciones espaciales en un nuevo esquema. De esta manera, tendremos separada las funciones espaciales de otras funciones que se puedan crear en el esquema **public** (esquema por defecto). 
+
+Antes de iniciar, es necesario conocer la sintaxis para ejecutar consultas SQL con psql.
 
 ```
 psql -h <hostname> -U <username> -p <port> -d <dbname> -c "<QUERY>"
 ```
 
-1. Como primer paso, crearemos el esquema **postgis** que almacenará todas las funciones espaciales.
+1. Como primer paso, crearemos el esquema **postgis** que almacenará todas las extensiones espaciales.
 
 ```
 psql -U postgres -d gis -c "CREATE SCHEMA postgis"
@@ -91,13 +93,13 @@ psql -U postgres -d gis -c "CREATE SCHEMA postgis"
 psql -U postgres -d gis -c "GRANT USAGE ON SCHEMA postgis TO public"
 ```
 
-3. Añadiremos el esquema **postgis** a la ruta de búsqueda de esquemas (**search_path**)
+3. Añadiremos el esquema **postgis** a la ruta de búsqueda de esquemas (**search_path**). Esto evitará que tengamos que llamar a las funciones espaciales anteponiendo el nombre del esquema.
 
 ```
 psql -U postgres -d gis -c "ALTER DATABASE gis SET search_path = public,postgis,contrib"
 ```
 
-<p>Para verificar que el esquema se agrego a la ruta de búsqueda ejecutamos los siguiente</p>
+<p>Para verificar que el nombre del esquema se agregó a la ruta de búsqueda ejecutar lo siguiente</p>
 
 ```
 psql -U postgres -d gis -c "SHOW search_path"
@@ -112,6 +114,8 @@ Una vez configurada la base de datos crearemos las extensiones espaciales, en el
 * **postgis_raster**: Administrar datos ráster.
 
 * **postgis_topology**: Administrar objetos topológicos como nodos, bordes, caras y sus relaciones.
+
+*Nota: La extensión postgis_topology crea su propio esquema, por lo tanto no se debe indicar un schema de creación*
 
 ```
 psql -U postgres -d gis -c "CREATE EXTENSION postgis SCHEMA postgis"
@@ -140,7 +144,8 @@ Ejecutando la consulta utilizando el superusuario **postgres**:
 ```
 psql -U postgres -l
 ```
-![image](https://user-images.githubusercontent.com/88239150/175183983-c5eee80c-ba71-4936-b258-7659280a442c.png)
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/88239150/175183983-c5eee80c-ba71-4936-b258-7659280a442c.png"/></p>
 
 2. Ahora verificaremos la versión de postgis de la base de datos **gis**.
 
@@ -148,7 +153,7 @@ psql -U postgres -l
 psql -U postgres -d gis -c "select postgis_full_version()"
 ```
 
-![image](https://user-images.githubusercontent.com/88239150/175184279-a5d5b10d-5990-4dea-b1ee-766f68c6ec07.png)
+<p align="center"><img src = "https://user-images.githubusercontent.com/88239150/175184279-a5d5b10d-5990-4dea-b1ee-766f68c6ec07.png"/></p>
 
 3. Por ultimo, nos conectamos a la base de datos **gis** y verificamos que se hayan creado las tablas que almacenan los metadatos de los sistemas de referencia espacial (spatial_ref_sys) y de las tablas espaciales.
 
@@ -170,6 +175,6 @@ psql -U postgres gis
 
 Una vez conectados a la base de datos, podemos listar las entidades (tablas y vistas) que almacenan los metadatos ejecutando el comando "**\d**"
 
-![image](https://user-images.githubusercontent.com/88239150/175185059-4c869406-d960-4336-8c24-5b9cf6d69e95.png)
+<p align="center"><img src = "https://user-images.githubusercontent.com/88239150/175185059-4c869406-d960-4336-8c24-5b9cf6d69e95.png"/></p>
 
 Y listo, tendremos creada nuestra base de datos configurada para gestionar datos espaciales.
