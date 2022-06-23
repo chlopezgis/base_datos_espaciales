@@ -18,13 +18,13 @@
 <p>A continuación, se explicará como crear una base de datos espacial utilizando PostGIS 2.0 en un sistema operativo windows 10.</p>
 
 ### I. Añadir variable de Entorno.
-<p>Para el desarrollo de este tutorial utilizaremos los comando de utilidad que provee PostgreSQL y que se ejecutan desde la consola. Los mas utilizados son:</p>
+<p>Para el desarrollo de este tutorial utilizaremos los comando de utilidad que provee PostgreSQL y que se ejecutan desde la consola. Los comandos mas utilizados son:</p>
 
 | Comando de utilidad | Descripción |
 |-------------------|-------------|
 | **psql**   | Cliente de línea de comandos que permite comunicarnos con el servidor de PostgreSQL mediante sentencias SQL. Además, proporciona una serie de metacomandos y varias funciones similares a las de un shell para facilitar la escritura de scripts y la automatización de una amplia variedad de tareas.    |
 | **createdb** | Crear una nueva base de datos.       |
-| **dropdb** | Borrarde una base de datos existente. |
+| **dropdb** | Borrar una base de datos existente. |
 | **pg_dump** | Realizar copias de seguridad de una base de datos |
 | **pg_restore** | Restaurar una base de datos PostgreSQL desde un archivo creado por pg_dump |
 
