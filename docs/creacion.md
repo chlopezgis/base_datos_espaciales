@@ -177,3 +177,11 @@ Una vez conectados a la base de datos, podemos listar las entidades (tablas y vi
 <p align="center"><img src = "https://user-images.githubusercontent.com/88239150/175185059-4c869406-d960-4336-8c24-5b9cf6d69e95.png"/></p>
 
 Y listo, tendremos creada nuestra base de datos configurada para gestionar datos espaciales.
+
+## Referencias
+
+https://www.postgresql.org/docs/14/index.html
+
+http://postgis.net/workshops/postgis-intro/introduction.html
+
+https://desktop.arcgis.com/es/arcmap/latest/manage-data/using-sql-with-gdbs/what-are-spatial-types.htm
