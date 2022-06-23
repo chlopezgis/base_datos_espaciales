@@ -51,9 +51,7 @@ En la ventana de Edición de Variables de Entorno, dar clic en el botón **Nuevo
 
 <p>Ahora procederemos a crear una base de datos.</p>
 
-Abrir la consola de comandos de Windows.
-
-Ejecutar el comando **createdb**
+Abrir la consola de comandos de Windows y ejecutar el comando **createdb**
 
 ```
 createdb -h <hostname> -p <port> -U <username> <dbname>
