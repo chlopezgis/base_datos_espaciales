@@ -1,7 +1,7 @@
 <header>
 
 # CREACIÓN DE UNA BASE DE DATOS ESPACIAL
-<p>Tutorial que explica como crear una Base de Datos Espacial con PostGIS</p>
+<p>Guia rápida para crear una Base de Datos Espacial con PostGIS</p>
 
 </header>
 
