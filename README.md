@@ -18,15 +18,26 @@
 <p>A continuación, se explicará como crear una base de datos espacial utilizando PostGIS 2.0 en un sistema operativo windows 10.</p>
 
 ### I. Añadir variable de Entorno.
-<p>Para el desarrollo de este tutorial utilizaremos las utilidades de línea de comando que provee PostgreSQL:</p>
+<p>Para el desarrollo de este tutorial utilizaremos los comando de utilidad que provee PostgreSQL y que se ejecutan desde la consola. Los mas utilizados son:</p>
+
+| Comando de utilidad | Descripción |
+|-------------------|-------------|
+| psql   | liente de línea de comandos que permite comunicarnos con el servidor de PostgreSQL mediante sentencias SQL.<br>Además, proporciona una serie de metacomandos y varias funciones similares a las de un shell para facilitar la escritura de scripts y la automatización de una amplia variedad de tareas.    |
+| Persona 5         | Atlus       |
+| Final Fantasy VII | Square Enix |
+| Fortnite          | Epic Games  |
 
 * **psql**: Cliente de línea de comandos que permite comunicarnos con el servidor de PostgreSQL mediante sentencias SQL. Además, proporciona una serie de metacomandos y varias funciones similares a las de un shell para facilitar la escritura de scripts y la automatización de una amplia variedad de tareas.
 
-* **createdb**: Es una utilidad de línea de comandos que permite crear una base de datos.
+* **createdb**: Permite crear una nueva base de datos.
+
+* **dropedb**: Permite crear una nueva base de datos.
+
+* **createdb**: Permite crear una nueva base de datos.
 
 <p>Para utilizar las utilidades de PostgreSQL en sistemas operativos windows, es necesario configurar las variables de entorno del sistema.</p>
 
-1. Como primer paso, debemos identificar y copiar la ruta del directorio donde se almacenan estas utilidades (binarios y/o ejecutables). Este directorio depende de la instalación y la versión de postgreSQL, por lo general debe ser una ruta similar a la siguiente:
+1. Como primer paso, debemos identificar y copiar la ruta del directorio "**bin**" que es donde se almacenan los comandos de utilidad. Este directorio depende de la instalación y la versión de postgreSQL, por lo general debe ser una ruta similar a la siguiente:
 
 ```
 C:\Program Files\PostgreSQL\14\bin
@@ -67,7 +78,8 @@ createdb -U postgres gis
 ```
 
 ### III. Configurar Base de Datos.
-<p>Vamos a configurar la base de datos para instalar todas las funciones espaciales en un nuevo esquema. De esta manera, tendremos separada las funciones espaciales de otras funciones que se puedan crear en el esquema por defecto (Esquema **public**). Antes de iniciar, es necesario conocer la sintaxis para ejecutar consultas SQL con psql</p>
+
+Vamos a configurar la base de datos para instalar todas las funciones espaciales en un nuevo esquema. De esta manera, tendremos separada las funciones espaciales de otras funciones que se puedan crear en el esquema por **public**. Antes de iniciar, es necesario conocer la sintaxis para ejecutar consultas SQL con psql.
 
 ```
 psql -h <hostname> -U <username> -p <port> -d <dbname> -c "<QUERY>"
@@ -97,7 +109,7 @@ psql -U postgres -d gis -c "SHOW search_path"
 ### III. Crear extensiones espaciales
 <p>Una vez configurada la base de datos crearemos las extensiones espaciales en el esquema **postgis**:</p>
 
-* **postgis**:
+* **postgis**: La extensión postgis n
 
 * **postgis_raster**:
 
