@@ -64,7 +64,7 @@ Si se ejecuta desde el servidor podemos omitir el nombre del host y el puerto:
 ```
 createdb -U <username> <dbname>
 ```
-Entonces, crearemos la base de datos de nombre gis utilizando el superusuario postgres
+Entonces, crearemos la base de datos de nombre gis utilizando un usuario con permisos de creación de base de datos, para este ejemplo utilizaremos el superusuario *postgres*
 
 ```
 createdb -U postgres gis
