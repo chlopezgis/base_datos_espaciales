@@ -22,18 +22,11 @@
 
 | Comando de utilidad | Descripción |
 |-------------------|-------------|
-| psql   | liente de línea de comandos que permite comunicarnos con el servidor de PostgreSQL mediante sentencias SQL.<br>Además, proporciona una serie de metacomandos y varias funciones similares a las de un shell para facilitar la escritura de scripts y la automatización de una amplia variedad de tareas.    |
-| Persona 5         | Atlus       |
-| Final Fantasy VII | Square Enix |
-| Fortnite          | Epic Games  |
-
-* **psql**: Cliente de línea de comandos que permite comunicarnos con el servidor de PostgreSQL mediante sentencias SQL. Además, proporciona una serie de metacomandos y varias funciones similares a las de un shell para facilitar la escritura de scripts y la automatización de una amplia variedad de tareas.
-
-* **createdb**: Permite crear una nueva base de datos.
-
-* **dropedb**: Permite crear una nueva base de datos.
-
-* **createdb**: Permite crear una nueva base de datos.
+| **psql**   | Cliente de línea de comandos que permite comunicarnos con el servidor de PostgreSQL mediante sentencias SQL. Además, proporciona una serie de metacomandos y varias funciones similares a las de un shell para facilitar la escritura de scripts y la automatización de una amplia variedad de tareas.    |
+| **createdb** | Crear una nueva base de datos.       |
+| **dropdb** | Borrarde una base de datos existente. |
+| **pg_dump** | Realizar copias de seguridad de una base de datos |
+| **pg_restore** | Restaurar una base de datos PostgreSQL desde un archivo creado por pg_dump |
 
 <p>Para utilizar las utilidades de PostgreSQL en sistemas operativos windows, es necesario configurar las variables de entorno del sistema.</p>
 
