@@ -29,21 +29,21 @@
 
 <p>Para utilizar las utilidades de PostgreSQL en sistemas operativos windows, es necesario configurar las variables de entorno del sistema.</p>
 
-1. Como primer paso, debemos identificar y copiar la ruta del directorio "**bin**" que es donde se almacenan los comandos de utilidad. Este directorio depende de la instalación y la versión de postgreSQL, por lo general debe ser una ruta similar a la siguiente:
+Como primer paso, debemos identificar y copiar la ruta del directorio "**bin**" que es donde se almacenan los comandos de utilidad. Este directorio depende de la instalación y la versión de postgreSQL, por lo general debe ser una ruta similar a la siguiente:
 
 ```
 C:\Program Files\PostgreSQL\14\bin
 ```
 
-2. Abrir las variables de entorno del sistema 
+Abrir las variables de entorno del sistema 
 
 <p align="center"><img src = "https://user-images.githubusercontent.com/88239150/174875175-37d190d2-83f8-44c8-9a62-9c085a0964a9.png"/></p>
 
-3. En las **variables del sistema** seleccionar la variable **path** y luego dar clic en **Editar**.
+En las **variables del sistema** seleccionar la variable **path** y luego dar clic en **Editar**.
 
 <p align="center"><img src = "https://user-images.githubusercontent.com/88239150/174875654-4564bbb0-d290-4530-b057-2405a7f985ba.png"/></p>
 
-4. En la ventana de Edición de Variables de Entorno, dar clic en el botón **Nuevo** y copiar la ruta en la **nueva línea**. Finalmente, dar clic en **Aceptar** todo.
+En la ventana de Edición de Variables de Entorno, dar clic en el botón **Nuevo** y copiar la ruta en la **nueva línea**. Finalmente, dar clic en **Aceptar** todo.
 
 <p align="center"><img src = "https://user-images.githubusercontent.com/88239150/174876489-572e65db-63eb-466a-b216-e7e5693340db.png"/></p>
 
@@ -51,8 +51,9 @@ C:\Program Files\PostgreSQL\14\bin
 
 <p>Ahora procederemos a crear una base de datos.</p>
 
-1. Abrir la consola de comandos de Windows.
-2. Ejecutar el comando **createdb**
+Abrir la consola de comandos de Windows.
+
+Ejecutar el comando **createdb**
 
 ```
 createdb -h <hostname> -p <port> -U <username> <dbname>
@@ -80,19 +81,19 @@ Antes de iniciar, es necesario conocer la sintaxis para ejecutar consultas SQL c
 psql -h <hostname> -U <username> -p <port> -d <dbname> -c "<QUERY>"
 ```
 
-1. Como primer paso, crearemos el esquema **postgis** que almacenará todas las extensiones espaciales.
+Como primer paso, crearemos el esquema **postgis** que almacenará todas las extensiones espaciales.
 
 ```
 psql -U postgres -d gis -c "CREATE SCHEMA postgis"
 ```
 
-2. Luego, procederemos a dar acceso a todos los usuarios al esquema **postgis**
+Luego, procederemos a dar acceso a todos los usuarios al esquema **postgis**
 
 ```
 psql -U postgres -d gis -c "GRANT USAGE ON SCHEMA postgis TO public"
 ```
 
-3. Añadiremos el esquema **postgis** a la ruta de búsqueda de esquemas (**search_path**). Esto evitará que tengamos que llamar a las funciones espaciales anteponiendo el nombre del esquema.
+Añadiremos el esquema **postgis** a la ruta de búsqueda de esquemas (**search_path**). Esto evitará que tengamos que llamar a las funciones espaciales anteponiendo el nombre del esquema.
 
 ```
 psql -U postgres -d gis -c "ALTER DATABASE gis SET search_path = public,postgis,contrib"
@@ -126,7 +127,7 @@ psql -U postgres -d gis -c "CREATE EXTENSION postgis_topology"
 
 ### IV. Verificar la instalación
 
-1. Primero listaremos las base de datos existentes en el servidor.
+Primero listaremos las base de datos existentes en el servidor.
 
 ```
 psql -h <hostname> -p <port> -U <username> -l
@@ -146,7 +147,7 @@ psql -U postgres -l
 
 <p align="center"><img src = "https://user-images.githubusercontent.com/88239150/175183983-c5eee80c-ba71-4936-b258-7659280a442c.png"/></p>
 
-2. Ahora verificaremos la versión de postgis de la base de datos **gis**.
+Ahora verificaremos la versión de postgis de la base de datos **gis**.
 
 ```
 psql -U postgres -d gis -c "select postgis_full_version()"
@@ -154,7 +155,7 @@ psql -U postgres -d gis -c "select postgis_full_version()"
 
 <p align="center"><img src = "https://user-images.githubusercontent.com/88239150/175184279-a5d5b10d-5990-4dea-b1ee-766f68c6ec07.png"/></p>
 
-3. Por ultimo, nos conectamos a la base de datos **gis** y verificamos que se hayan creado las tablas que almacenan los metadatos de los sistemas de referencia espacial (spatial_ref_sys) y de las tablas espaciales.
+Por ultimo, nos conectamos a la base de datos **gis** y verificamos que se hayan creado las tablas que almacenan los metadatos de los sistemas de referencia espacial (spatial_ref_sys) y de las tablas espaciales.
 
 ```
 psql -h <hostname> -p <port> -U <username> <dbname>
