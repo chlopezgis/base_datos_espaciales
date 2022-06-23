@@ -58,7 +58,8 @@ C:\Program Files\PostgreSQL\14\bin
 ```
 createdb -h <hostname> -p <port> -U <username> <dbname>
 ```
-*Nota: Si se ejecuta desde el servidor podemos omitir el host y el puerto:*
+
+Si el comando se ejecuta desde el servidor de la base de datos podemos omitir el host y el puerto:
 
 ```
 createdb -U <username> <dbname>
@@ -117,8 +118,54 @@ psql -U postgres -d gis -c "CREATE EXTENSION postgis_topology"
 ```
 #### IV. Verificar la instalación
 
-Primero listaremos las base de datos existentes en el servidor.
+1. Primero listaremos las base de datos existentes en el servidor.
 
 ```
 psql -h <hostname> -p <port> -U <username> -l
 ```
+
+Si el comando se ejecuta desde el servidor de la base de datos podemos omitir el host y el puerto:
+
+```
+psql -U <username> -l
+```
+
+Ejecutando la consulta utilizando el superusuario **postgres**:
+```
+psql -U postgres -l
+```
+![image](https://user-images.githubusercontent.com/88239150/175183983-c5eee80c-ba71-4936-b258-7659280a442c.png)
+
+2. Ahora verificaremos la versión de postgis de la base de datos **gis**.
+```
+psql -U postgres -d gis -c "select postgis_full_version()"
+```
+![image](https://user-images.githubusercontent.com/88239150/175184279-a5d5b10d-5990-4dea-b1ee-766f68c6ec07.png)
+
+3. Por ultimo, nos conectamos a la base de datos **gis** y verificamos que se hayan creado las tablas que almacenan los metadatos de los sistemas de referencia espacial (spatial_ref_sys) y de las tablas espaciales.
+
+```
+psql -h <hostname> -p <port> -U <username> <dbname>
+```
+
+Si el comando se ejecuta desde el servidor de la base de datos podemos omitir el host y el puerto:
+
+```
+psql -U <username> <dbname>
+```
+
+Ejecutando la consulta utilizando el superusuario **postgres**:
+```
+psql -U postgres gis
+```
+
+Una vez conectados a la base de datos, podemos listar las entidades (tablas y vistas) que almacenan los metadatos ejecutando el comando "**\d**"
+
+![image](https://user-images.githubusercontent.com/88239150/175185059-4c869406-d960-4336-8c24-5b9cf6d69e95.png)
+
+Y listo, ya tendremos creada nuestra base de datos espacial donde podremos diseñar nuestro SIG.
+
+
+
+
+
