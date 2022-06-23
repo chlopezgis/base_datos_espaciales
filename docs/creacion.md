@@ -1,20 +1,22 @@
-# ¿Qué es una base de datos?
+<center><h1>CREACIÓN DE UNA BASE DE DATOS ESPACIAL</h1></center>
+
+## ¿Qué es una base de datos?
 <p> Una base de datos es una colección organizada y estructurada de datos relacionados entre sí, cuyo objetivo es facilitar el uso y acceso a la información.</p>
 
-# ¿Qué es una base de datos espacial?
+## ¿Qué es una base de datos espacial?
 <p>Es una base de datos optimizada que permite almacenar y manipular objetos espaciales. Existen tres aspectos que asocian los datos espaciales con una base de datos: tipos de datos, índices y funciones.</p>
 
 * **Tipo de datos espaciales**: Tipo de datos que permiten almacenar y representar carácteristicas geográficas.
 * **Índices espaciales**: Tipo de índice extendido que permite indexar una columna espacial. Se utilizan para mejorar el rendimiento de consultas espaciales
 * **Funciones espaciales**: Funciones que permiten analizar componentes geométricos, determinar relaciones espaciales y manipular geometrías.
 
-# ¿Qué es PostGIS?
+## ¿Qué es PostGIS?
 <p>Es una extensión que convierte el sistema de administración de bases de datos PostgreSQL en una base de datos espacial.</p>
 
-# ¿Cómo crear una base de datos espacial con PostGIS?
+## ¿Cómo crear una base de datos espacial con PostGIS?
 <p>A continuación, se explicará como crear una base de datos espacial utilizando PostGIS 2.0 en un sistema operativo windows 10.</p>
 
-## I. Añadir variable de Entorno.
+### I. Añadir variable de Entorno.
 <p>Para el desarrollo de este tutorial utilizaremos los comando de utilidad que provee PostgreSQL y que se ejecutan desde la consola. Los comandos mas utilizados son:</p>
 
 | Comando de utilidad | Descripción |
@@ -45,7 +47,7 @@ C:\Program Files\PostgreSQL\14\bin
 
 <p align="center"><img src = "https://user-images.githubusercontent.com/88239150/174876489-572e65db-63eb-466a-b216-e7e5693340db.png"/></p>
 
-## II. Crear una Base de Datos.
+### II. Crear una Base de Datos.
 
 <p>Ahora procederemos a crear una base de datos.</p>
 
@@ -68,7 +70,7 @@ Entonces, crearemos la base de datos de nombre **gis** utilizando un usuario con
 createdb -U postgres gis
 ```
 
-## III. Configurar Base de Datos.
+### III. Configurar Base de Datos.
 
 Vamos a configurar la base de datos para instalar todas las funciones espaciales en un nuevo esquema. De esta manera, tendremos separada las funciones espaciales de otras funciones que se puedan crear en el esquema **public** (esquema por defecto). 
 
@@ -102,7 +104,7 @@ psql -U postgres -d gis -c "ALTER DATABASE gis SET search_path = public,postgis,
 psql -U postgres -d gis -c "SHOW search_path"
 ```
 
-## III. Crear extensiones espaciales
+### III. Crear extensiones espaciales
 
 Una vez configurada la base de datos crearemos las extensiones espaciales, en el esquema **postgis**, que permitiran almacenar, manipular y consultar la información geográfica. Las extensiones son las siguientes:
 
@@ -122,7 +124,7 @@ psql -U postgres -d gis -c "CREATE EXTENSION postgis_raster SCHEMA postgis"
 psql -U postgres -d gis -c "CREATE EXTENSION postgis_topology"
 ```
 
-## IV. Verificar la instalación
+### IV. Verificar la instalación
 
 1. Primero listaremos las base de datos existentes en el servidor.
 
