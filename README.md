@@ -58,8 +58,7 @@ C:\Program Files\PostgreSQL\14\bin
 ```
 createdb -h <hostname> -p <port> -U <username> <dbname>
 ```
-
-Si se ejecuta desde el servidor podemos omitir el nombre del host y el puerto:
+*Nota: Si se ejecuta desde el servidor podemos omitir el host y el puerto:*
 
 ```
 createdb -U <username> <dbname>
@@ -118,7 +117,7 @@ psql -U postgres -d gis -c "CREATE EXTENSION postgis_topology"
 ```
 #### IV. Verificar la instalación
 
-Primero listaremos las base de datos existentes en el servidor. Debe aparecer la base de datos creada.
+Primero listaremos las base de datos existentes en el servidor.
 
 ```
 psql -h <hostname> -p <port> -U <username> -l
