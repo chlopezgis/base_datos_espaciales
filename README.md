@@ -100,13 +100,13 @@ psql -U postgres -d gis -c "SHOW search_path"
 ```
 
 ### III. Crear extensiones espaciales
-<p>Una vez configurada la base de datos crearemos las extensiones espaciales en el esquema **postgis**:</p>
+<p>Una vez configurada la base de datos crearemos las extensiones espaciales en el esquema **postgis**. Estas extensiones nos permitiran almacenar, manipular y consultar la información geográfica:</p>
 
-* **postgis**: La extensión postgis n
+* **postgis**: Permite almacenar, manipular y administrar información espacial (puntos, lineas y polígonos).
 
-* **postgis_raster**:
+* **postgis_raster**: Permite almacenar, manipular y analizar datos ráster.
 
-* **postgis_topology**:
+* **postgis_topology**: Permite administrar objetos topológicos como nodos, bordes, caras y sus relaciones.
 
 ```
 psql -U postgres -d gis -c "CREATE EXTENSION postgis SCHEMA postgis"
