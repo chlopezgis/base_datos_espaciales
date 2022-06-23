@@ -21,7 +21,7 @@
 
 | Comando de utilidad | Descripción |
 |-------------------|-------------|
-| **psql**   | Cliente de línea de comandos que permite comunicarnos con el servidor de PostgreSQL mediante sentencias SQL. Además, proporciona una serie de metacomandos y varias funciones similares a las de un shell para facilitar la escritura de scripts y la automatización de una amplia variedad de tareas.    |
+| **psql**   | Cliente de línea de comandos que permite comunicarnos con el servidor de PostgreSQL mediante sentencias SQL.|
 | **createdb** | Crear una nueva base de datos.       |
 | **dropdb** | Borrar una base de datos existente. |
 | **pg_dump** | Realizar copias de seguridad de una base de datos |
