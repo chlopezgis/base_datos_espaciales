@@ -1,4 +1,4 @@
-# Curso de Base de Datos Espaciales con PostGIS
+# Base de Datos Espaciales con PostGIS
 
 ## Contenido
 
