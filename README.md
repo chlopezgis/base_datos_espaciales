@@ -5,7 +5,7 @@ Este repositorio contiene artículos y materiales de guía en la Gestión de dat
 # Contenido
 
 * Crear y configurar base de datos espaciales
-* Cargar y descargar datos en una base de datos espacial
+* Importar y exportar datos en PostGIS
 * Creación de tablas espaciales
 * Introducción al análisis vectorial
 * Trabajar con datos vectoriales - Introducción
