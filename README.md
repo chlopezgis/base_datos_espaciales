@@ -1,6 +1,6 @@
 # Base de datos espaciales con PostGIS
 
-Este repositorio contiene artículos y materiales de guía en la Gestión de datos espaciales utilizando PostGIS.
+Este repositorio contiene artículos y materiales de guía en la Gestión de datos espaciales con PostGIS.
 
 # Contenido
 
