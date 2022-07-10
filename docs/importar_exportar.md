@@ -1,4 +1,4 @@
-<center><h1>IMPORTAR Y EXPORTAR DATOS EN POSTGIS</h1></center>
+<center><h1>CAP 2. IMPORTAR Y EXPORTAR DATOS EN POSTGIS</h1></center>
 
 Los datos son el componente mas importante de un SIG ya que sin estos es imposible realizar cualquier análisis. Actualmente, existen muchas fuentes de datos disponibles que podemos incorporar como punto de partida en nuestra Base de Datos (previa evaluación de calidad). 
 
@@ -7,6 +7,12 @@ En este capítulo, se mostrarán las principales herramientas y procesos para im
 ## Ante de iniciar...
 
 Crear una base de datos espacial tomando como plantilla la base de datos creada en el capitulo anterior (ver [aquí](https://chlopezgis.github.io/base_datos_espaciales/creacion))
+
+```
+createdb -U <username> -T <tempalate> <dbname>
+```
+
+_**NOTA: Los comandos se ejecutaran desde el servidor y el puerto por defecto, por lo cual omitiremos el ingresos de estos parámetros**_
 
 ## 1. Importar datos tabulares (CSV) con el comando COPY
 
