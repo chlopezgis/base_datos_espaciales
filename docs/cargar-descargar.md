@@ -4,7 +4,7 @@
 
 ## 2. Importar Shapefiles con el comando shp2pgsql
 
-## 3. Importar archivos vectoriales con el comando GDAL/ogr
+## 3. Importar otros formatos vectoriales con el comando GDAL/ogr
 
 ## 4. Importar ráster con el comando raster2pgsql
 
