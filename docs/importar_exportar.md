@@ -8,11 +8,26 @@ En este capítulo, se mostrarán las principales herramientas y procesos para im
 
 Crear una base de datos espacial tomando como plantilla la base de datos creada en el capitulo anterior (ver [aquí](https://chlopezgis.github.io/base_datos_espaciales/creacion))
 
+_**NOTA: Los comandos se ejecutaran desde el servidor y utilizando el puerto por defecto, por lo que a lo largo del tutorial omitiremos estos parámetros**_
+
 ```
 createdb -U <username> -T <tempalate> <dbname>
 ```
 
-_**NOTA: Los comandos se ejecutaran desde el servidor y el puerto por defecto, por lo cual omitiremos el ingresos de estos parámetros**_
+Ejecutando el comando
+
+```
+createdb -U postgres -T gis lore
+```
+
+Listar todas las bases existentes
+
+```
+psql -U postgres -l
+```
+
+![image](https://user-images.githubusercontent.com/88239150/178155564-ebb18b3f-6693-4d9c-b7c5-9f76facc4542.png)
+
 
 ## 1. Importar datos tabulares (CSV) con el comando COPY
 
