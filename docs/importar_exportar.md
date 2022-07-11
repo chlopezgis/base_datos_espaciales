@@ -93,7 +93,7 @@ A continuación, se detalla el flujo de trabajo a seguir para importar/exportar 
 
 **Paso 1.**  Con un editor de texto, inspeccionar la estructura del archivo que vamos a importar a PostgreSQL. Utilizaremos el archivo **comercios.csv** que contiene un listado de comercios levantados por COFOPRI.
 
-
+![image](https://user-images.githubusercontent.com/88239150/178259319-4b5df6e8-54ec-4dfc-ab74-2100b49febc6.png)
 
 Observamos que el archivo se encuentra delimitado por punto y coma (;) y tiene los siguiente campos:
 
@@ -111,7 +111,11 @@ Observamos que el archivo se encuentra delimitado por punto y coma (;) y tiene l
 
 **Paso 2.** Crear la tabla con la estructura del archivo CSV, debe tener los mismos campos y en el mismo orden.
 
-**Paso 3.** Desde el simbolo del sistema
+**Paso 3.** Conectarse a la base de datos desde su cliente SQL.
+
+**Paso 4.** Ejecutar el comando **COPY FROM**
+
+
 
 ## 2. Importar Shapefiles con el comando shp2pgsql
 
