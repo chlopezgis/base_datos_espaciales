@@ -98,7 +98,7 @@ A continuación, se detalla el flujo de trabajo a seguir para importar/exportar 
 Observamos que el archivo se encuentra delimitado por punto y coma (;) y tiene los siguiente campos:
 
 * ID: Identificador de registro (Número entero)
-* UBIGEO: Código de ubigeo (6 carácteres
+* UBIGEO: Código de ubigeo (6 carácteres)
 * COD_SECT: Código de sector (2 carácteres)
 * COD_MZNA: Códio de manzana (3 carácteres)
 * COD_LOTE: Código de lote (3 carácteres)
@@ -112,10 +112,33 @@ Observamos que el archivo se encuentra delimitado por punto y coma (;) y tiene l
 **Paso 2.** Concetarse a la base de datos. A continuación, se muestra como conectarse con el cliente **psql** desde el simbolo del sistema:
 
 ```
-psql -U postgres lore
+    psql -U postgres lore
 ```
 
-**Paso 3.** Crear la tabla con la estructura del archivo CSV, debe tener los mismos campos y en el mismo orden.
+**Paso 3.** Crear un esquema de trabajo de nombre **data**
+
+```
+    CREATE SCHEMA data;
+```
+
+**Paso 4.** Crear la tabla con la estructura del archivo CSV, debe tener los mismos campos y en el mismo orden.
+
+```
+    CREATE TABLE data.comercios(
+            id integer PRIMARY KEY
+            , ubigeo CHAR(6) NOT NULL
+            , cod_sect CHAR(2) NOT NULL
+            , cod_mzna CHAR(3) NOT NULL
+            , cod_lote CHAR(3) NOT NULL
+            , cod_piso CHAR(2) NOT NULL
+            , cod_edificacion CHAR(2) NOT NULL
+            , cod_uso VARCHAR(5)
+            , desc_uso VARCHAR(150)
+            , lon_x NUMERIC(10,6) NOT NULL
+            , lat_y NUMERIC(10,6) NOT NULL
+            , geom GEOMETRY(POINT, 4326)
+    );
+```
 
 **Paso 4.** Ejecutar el comando **COPY FROM**
 
