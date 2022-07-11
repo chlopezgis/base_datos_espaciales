@@ -46,7 +46,7 @@ psql -U postgres -d lore -c "SELECT postgis_full_version()"
 
 ## 1. Importar y exportar datos tabulares con el comando COPY
 
-El comando COPY nos permite mover datos entre tablas de PostgreSQL y archivos de texto plano (CSV o TXT). 
+El comando **COPY** nos permite mover datos entre tablas de PostgreSQL y archivos de texto plano (CSV o TXT). 
 
 **COPY FROM**
 * Permite copiar los datos de un archivo de texto plano a una tabla en PostgreSQL. 
