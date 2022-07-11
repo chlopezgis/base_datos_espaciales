@@ -121,7 +121,7 @@ Observamos que el archivo se encuentra delimitado por punto y coma (;) y tiene l
     CREATE SCHEMA data;
 ```
 
-**Paso 4.** Crear la tabla con la estructura del archivo CSV en el mismo orden. Tambien, agregar un campo de tipo geometría puntual con el sistema de referencia correspondiente.
+**Paso 4.** Crear la tabla con la estructura del archivo CSV respetando el orden de los campos. Tambien, agregar al final un campo de tipo geometría puntual con el sistema de referencia correspondiente.
 
 ```
     CREATE TABLE data.comercios(
@@ -142,6 +142,13 @@ Observamos que el archivo se encuentra delimitado por punto y coma (;) y tiene l
 
 **Paso 4.** Ejecutar el comando **COPY FROM**
 
+```
+    COPY data.comercios(id, ubigeo, cod_sect, cod_mzna, cod_lote, cod_piso, cod_edificacion, cod_uso, desc_uso, lon_x, lat_y)
+    FROM 'D:\Charlie\05_Articulos\SpatialDB\data\cap02\comercios.csv' 
+    WITH CSV HEADER DELIMITER ';' ENCODING 'UTF-8';
+```
+
+![image](https://user-images.githubusercontent.com/88239150/178262851-47a419e9-e5c7-4523-add1-7498f74fd6b9.png)
 
 
 ## 2. Importar Shapefiles con el comando shp2pgsql
