@@ -1,4 +1,4 @@
-<center><h1>CAP 2. IMPORTAR Y EXPORTAR DATOS EN POSTGIS</h1></center>
+<center><h1>CAP 2. Importar y exportar datos</h1></center>
 
 Los datos son el componente mas importante de un SIG ya que sin estos es imposible realizar cualquier análisis. Actualmente, existen muchas fuentes de datos disponibles que podemos incorporar como punto de partida en nuestra Base de Datos (previa evaluación de calidad). 
 
@@ -44,7 +44,18 @@ psql -U postgres -d lore -c "SELECT postgis_full_version()"
 
 ![image](https://user-images.githubusercontent.com/88239150/178155791-2d67fb92-4a44-4118-bf19-8986e0464adb.png)
 
-## 1. Importar datos tabulares (CSV) con el comando COPY
+## 1. Importar y exportar datos tabulares con el comando COPY
+
+El comando COPY nos permite mover datos entre tablas de PostgreSQL y archivos de texto plano (CSV o TXT). 
+
+**COPY FROM**
+* Permite copiar los datos de un archivo de texto plano a una tabla en PostgreSQL. 
+* Cada campo del archivo se inserta, en orden, en la columna especificada.
+* Las columnas de la tabla no especificadas recibirán sus valores predeterminados.
+
+**COPY TO**
+* Permite copiar el contenido de una tabla o los resultados de una consulta SELECT a un archivo de texto plano.
+* Si se especifica una lista de columnas, copia solo los datos de las columnas especificadas en el archivo. 
 
 ## 2. Importar Shapefiles con el comando shp2pgsql
 
@@ -57,3 +68,8 @@ psql -U postgres -d lore -c "SELECT postgis_full_version()"
 ## 6. Exportar a otros formatos vectoriales con el comando GDAL/ogr
 
 ## 7. Importar/Exportar datos con QGIS
+
+## Referencias
+
+https://www.postgresql.org/docs/current/sql-copy.html
+
