@@ -91,7 +91,23 @@ Las opciones principales son:
 
 A continuación, se detalla el flujo de trabajo a seguir para importar/exportar archivos CSV utilizando el comando COPY:
 
-**Paso 1.**  Importaremos el archivo **comercios.csv** a PostgreSQL. Este archivo, contiene un listado de comercios levantados por COFOPRI, debemos abrirlo con un editor de texto para ver su estructura.
+**Paso 1.**  Con un editor de texto, inspeccionar la estructura del archivo que vamos a importar a PostgreSQL. Utilizaremos el archivo **comercios.csv** que contiene un listado de comercios levantados por COFOPRI.
+
+
+
+Observamos que el archivo se encuentra delimitado por punto y coma (;) y tiene los siguiente campos:
+
+* ID: Identificador de registro (Número entero)
+* UBIGEO: Código de ubigeo (6 carácteres
+* COD_SECT: Código de sector (2 carácteres)
+* COD_MZNA: Códio de manzana (3 carácteres)
+* COD_LOTE: Código de lote (3 carácteres)
+* COD_PISO: Código de piso (2 carácteres)
+* COD_EDIFICACION: Código de edificación (2 carácteres)
+* COD_USO: Código de uso comercial (5 carácteres)
+* DESC_USO: Descripción del uso comercial (Hasta 150 carácteres)
+* LON_X: Longitud (Númerico de 6 decimales)
+* LAT_Y: Latitud (Númerico de 6 decimales)
 
 **Paso 2.** Crear la tabla con la estructura del archivo CSV, debe tener los mismos campos y en el mismo orden.
 
