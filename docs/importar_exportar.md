@@ -69,6 +69,17 @@ Las opciones principales son:
     ENCODING 'encoding_name'
 ```
 
+A continuación, se detalla el flujo de trabajo a seguir para importar/exportar archivos CSV utilizando el comando COPY:
+
+**Paso 1.**  Importaremos el archivo **comercios.csv** a PostgreSQL. Este archivo, contiene un listado de comercios levantados por COFOPRI, debemos abrirlo con un editor de texto para ver su estructura.
+
+**Paso 2.** Crear la tabla con la estructura del archivo CSV, debe tener los mismos campos y en el mismo orden.
+
+**Paso 3.** Desde el simbolo del sistema
+
+
+
+
 
 **COPY TO**
 * Permite copiar el contenido de una tabla o los resultados de una consulta SELECT a un archivo de texto plano.
