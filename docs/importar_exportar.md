@@ -121,7 +121,7 @@ Observamos que el archivo se encuentra delimitado por punto y coma (;) y tiene l
     CREATE SCHEMA data;
 ```
 
-**Paso 4.** Crear la tabla con la estructura del archivo CSV, debe tener los mismos campos y en el mismo orden.
+**Paso 4.** Crear la tabla con la estructura del archivo CSV en el mismo orden. Tambien, agregar un campo de tipo geometría puntual con el sistema de referencia correspondiente.
 
 ```
     CREATE TABLE data.comercios(
