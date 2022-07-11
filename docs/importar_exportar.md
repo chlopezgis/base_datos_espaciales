@@ -60,6 +60,13 @@ COPY table_name [ ( column_name [, ...] ) ]
     FROM { 'filename' | PROGRAM 'command' | STDIN }
     [ [ WITH ] ( option [, ...] ) ]
     [ WHERE condition ]
+
+Las opciones principales son:
+
+    FORMAT format_name
+    DELIMITER 'delimiter_character'
+    HEADER [ boolean ]
+    ENCODING 'encoding_name'
 ```
 
 
@@ -73,6 +80,14 @@ COPY table_name [ ( column_name [, ...] ) ]
 COPY { table_name [ ( column_name [, ...] ) ] | ( query ) }
     TO { 'filename' | PROGRAM 'command' | STDOUT }
     [ [ WITH ] ( option [, ...] ) ]
+
+Las opciones principales son:
+
+    FORMAT format_name
+    DELIMITER 'delimiter_character'
+    HEADER [ boolean ]
+    ENCODING 'encoding_name'
+    
 ```
 
 
