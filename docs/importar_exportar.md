@@ -1,4 +1,4 @@
-<center><h1>CAP 2. Importar y exportar datos</h1></center>
+<center><h1>Cap 2. IMPORTAR Y EXPORTAR DATOS</h1></center>
 
 Los datos son el componente mas importante de un SIG ya que sin estos es imposible realizar cualquier análisis. Actualmente, existen muchas fuentes de datos disponibles que podemos incorporar como punto de partida en nuestra Base de Datos (previa evaluación de calidad). 
 
@@ -53,9 +53,28 @@ El comando **COPY** nos permite mover datos entre tablas de PostgreSQL y archivo
 * Cada campo del archivo se inserta, en orden, en la columna especificada.
 * Las columnas de la tabla no especificadas recibirán sus valores predeterminados.
 
+**Sintaxis:**
+
+```
+COPY table_name [ ( column_name [, ...] ) ]
+    FROM { 'filename' | PROGRAM 'command' | STDIN }
+    [ [ WITH ] ( option [, ...] ) ]
+    [ WHERE condition ]
+```
+
+
 **COPY TO**
 * Permite copiar el contenido de una tabla o los resultados de una consulta SELECT a un archivo de texto plano.
 * Si se especifica una lista de columnas, copia solo los datos de las columnas especificadas en el archivo. 
+
+**Sintaxis:**
+
+```
+COPY { table_name [ ( column_name [, ...] ) ] | ( query ) }
+    TO { 'filename' | PROGRAM 'command' | STDOUT }
+    [ [ WITH ] ( option [, ...] ) ]
+```
+
 
 ## 2. Importar Shapefiles con el comando shp2pgsql
 
