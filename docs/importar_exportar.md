@@ -2,7 +2,7 @@
 
 Los datos son el componente mas importante de un SIG ya que sin estos es imposible realizar cualquier análisis. Actualmente, existen muchas fuentes de datos disponibles que podemos incorporar como punto de partida en nuestra Base de Datos (previa evaluación de calidad). 
 
-En este capítulo, se mostrarán las principales herramientas y procesos para importar y exportar datos geoespaciales de diferentes formatos en nuestra base de datos.
+En este capítulo se mostrarán las principales herramientas y procesos para importar y exportar datos geoespaciales, de diferentes formatos, en nuestra base de datos.
 
 ## Ante de iniciar...
 
@@ -109,9 +109,13 @@ Observamos que el archivo se encuentra delimitado por punto y coma (;) y tiene l
 * LON_X: Longitud (Númerico de 6 decimales)
 * LAT_Y: Latitud (Númerico de 6 decimales)
 
-**Paso 2.** Crear la tabla con la estructura del archivo CSV, debe tener los mismos campos y en el mismo orden.
+**Paso 2.** Concetarse a la base de datos. A continuación, se muestra como conectarse con el cliente **psql** desde el simbolo del sistema:
 
-**Paso 3.** Conectarse a la base de datos desde su cliente SQL.
+```
+psql -U postgres lore
+```
+
+**Paso 3.** Crear la tabla con la estructura del archivo CSV, debe tener los mismos campos y en el mismo orden.
 
 **Paso 4.** Ejecutar el comando **COPY FROM**
 
