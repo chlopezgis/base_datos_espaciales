@@ -154,12 +154,31 @@ Contar la cantidad de registros:
 ```
     SELECT COUNT(*) AS cantidad FROM data.comercios;
 ``` 
+![image](https://user-images.githubusercontent.com/88239150/178388439-59ef9675-9ed2-4d3b-943b-16694f414d69.png)
 
 Mostrar los primeros 10 registros:
 
 ```
-    SELECT * FROM data.comercios LIMIT 10;
+    SELECT id, ubigeo, cod_uso, desc_uso, lon_x, lat_y FROM data.comercios LIMIT 10;
 ```
+
+![image](https://user-images.githubusercontent.com/88239150/178388694-5f50e1b0-afe5-4721-beb7-1909ebf48616.png)
+
+**Paso 6.** Ahora vamos a calcular la geometría a partir de las coordenadas de los comercios
+
+```
+    UPDATE data.comercios SET geom = ST_GeomFromText('POINT('||lon_x||' '||lat_y||')', 4326);
+```
+
+Verificar que el proceso se ejecuto correctamente:
+
+```
+    SELECT id, cod_uso, desc_uso, ST_AsText(geom) AS geom_text FROM data.comercios LIMIT 10;
+```
+![image](https://user-images.githubusercontent.com/88239150/178389562-3c9d0474-8568-4266-b668-17208902fab6.png)
+
+
+
 
 
 ## 2. Importar Shapefiles con el comando shp2pgsql
