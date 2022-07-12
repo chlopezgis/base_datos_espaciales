@@ -11,19 +11,19 @@ Crear una base de datos espacial tomando como plantilla la base de datos creada 
 _**NOTA: Los comandos se ejecutaran desde el servidor y utilizando el puerto por defecto, por lo que a lo largo del tutorial omitiremos estos parámetros**_
 
 ```
-createdb -U <username> -T <tempalate> <dbname>
+    createdb -U <username> -T <tempalate> <dbname>
 ```
 
 Ejecutando el comando
 
 ```
-createdb -U postgres -T gis lore
+    createdb -U postgres -T gis lore
 ```
 
 Listar todas las bases existentes
 
 ```
-psql -U postgres -l
+    psql -U postgres -l
 ```
 
 ![image](https://user-images.githubusercontent.com/88239150/178155564-ebb18b3f-6693-4d9c-b7c5-9f76facc4542.png)
@@ -31,7 +31,7 @@ psql -U postgres -l
 Ahora, debemos modificar la ruta de búsqueda de esquemas (search_path). Esto evitará que tengamos que llamar a las funciones espaciales anteponiendo el nombre del esquema
 
 ```
-psql -U postgres -d lore -c "ALTER DATABASE lore SET search_path = public,postgis,contrib"
+    psql -U postgres -d lore -c "ALTER DATABASE lore SET search_path = public,postgis,contrib"
 ```
 
 ![image](https://user-images.githubusercontent.com/88239150/178155726-d9384962-c703-417e-a1cd-8e4c6c0dd7ea.png)
@@ -39,7 +39,7 @@ psql -U postgres -d lore -c "ALTER DATABASE lore SET search_path = public,postgi
 Finalmente, verificar que PostGIS se instalo correctamente:
 
 ```
-psql -U postgres -d lore -c "SELECT postgis_full_version()"
+    psql -U postgres -d lore -c "SELECT postgis_full_version()"
 ```
 
 ![image](https://user-images.githubusercontent.com/88239150/178155791-2d67fb92-4a44-4118-bf19-8986e0464adb.png)
@@ -151,7 +151,7 @@ Observamos que el archivo se encuentra delimitado por punto y coma (;) y tiene l
 
 ```
     -- Conteo de registros
-    **SELECT COUNT(*) AS cantidad FROM data.comercios;**
+    <b>SELECT COUNT(*) AS cantidad FROM data.comercios;</b>
     
     -- Seleccionar los primeros 10 registros
     
