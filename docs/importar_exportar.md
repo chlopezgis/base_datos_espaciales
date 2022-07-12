@@ -147,6 +147,15 @@ Observamos que el archivo se encuentra delimitado por punto y coma (;) y tiene l
     FROM 'D:\Charlie\05_Articulos\SpatialDB\data\cap02\comercios.csv' WITH CSV HEADER DELIMITER ';' ENCODING 'UTF-8';
 ```
 
+**Paso 5.** Realizar una selección de la tabla para verificar que los registros se insertaron correctamente
+
+```
+    -- Conteo de registros
+    **SELECT COUNT(*) AS cantidad FROM data.comercios;**
+    
+    -- Seleccionar los primeros 10 registros
+    
+```
 
 ## 2. Importar Shapefiles con el comando shp2pgsql
 
