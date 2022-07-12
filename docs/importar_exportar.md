@@ -149,13 +149,18 @@ Observamos que el archivo se encuentra delimitado por punto y coma (;) y tiene l
 
 **Paso 5.** Realizar una selección de la tabla para verificar que los registros se insertaron correctamente
 
+Contar la cantidad de registros:
+
 ```
-    -- Conteo de registros
-    <b>SELECT COUNT(*) AS cantidad FROM data.comercios;</b>
-    
-    -- Seleccionar los primeros 10 registros
-    
+    SELECT COUNT(*) AS cantidad FROM data.comercios;
+``` 
+
+Mostrar los primeros 10 registros:
+
 ```
+    SELECT * FROM data.comercios LIMIT 10;
+```
+
 
 ## 2. Importar Shapefiles con el comando shp2pgsql
 
