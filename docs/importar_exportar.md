@@ -146,13 +146,20 @@ Las opciones principales son:
 
 A continuación, exportaremos todos los Bazares en un archivo plano. Las coordenadas de salida deben estar re-proyectadas al sistema WGS 84/UTM zone 18S
 
-**Paso 1.** Elaboraremos la consulta para exportar las columnas id, ubigeo, cod_uso, desc_uso y las coordenadas X,Y reproyectadas.
+**Paso 1.** Elaborar la consulta filtrando solo los BAZARES y considerando solo las columnas de: id, ubigeo, cod_uso, desc_uso y las coordenadas X,Y reproyectadas.
 
 ```
 SELECT id, ubigeo, cod_uso, desc_uso, ST_X(ST_Transform(geom, 32718)) AS x, ST_Y(ST_Transform(geom, 32718)) as y 
-FROM data.comercios WHERE cod_uso = '34104';
+FROM data.comercios WHERE cod_uso = '34104' LIMIT 10;
 ```
 ![image](https://user-images.githubusercontent.com/88239150/179316969-bd7df4e8-986a-48f8-be40-2da4212e6816.png)
+
+**Paso 2.** Ejecutar la consulta con el comando **COPY TO**.
+
+```
+COPY (SELECT id, ubigeo, cod_uso, desc_uso, ST_X(ST_Transform(geom, 32718)) AS x, ST_Y(ST_Transform(geom, 32718)) as y FROM data.comercios WHERE cod_uso = '34104') TO 'D:\salida\bazares_32718.csv' DELIMITER '|' CSV HEADER ENCODING 'UTF-8';
+```
+![image](https://user-images.githubusercontent.com/88239150/179317761-44a33630-1130-440b-ae4b-5b11fa488c65.png)
 
 ## 2. Importar Shapefiles con el comando shp2pgsql
 
