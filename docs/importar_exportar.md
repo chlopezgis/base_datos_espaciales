@@ -2,51 +2,17 @@
 
 Los datos son el componente mas importante de un SIG ya que sin estos es imposible realizar cualquier análisis. Actualmente, existen muchas fuentes de datos geoespaciales disponibles que podemos incorporar dentro de nuestros análisis. Por este motivo, en este tutorial se mostrarán las principales herramientas y procesos para importar y exportar datos de la base de datos espacial PostGIS.
 
-## Ante de iniciar...
+## Antes de iniciar...
 
-Crear una base de datos espacial tomando como plantilla la base de datos creada en el capitulo anterior ([Crear base de datos espacial ](https://chlopezgis.github.io/base_datos_espaciales/creacion))
-
-_**NOTA: Los comandos se ejecutaran desde el servidor y utilizando el puerto por defecto, por lo que a lo largo del tutorial omitiremos estos parámetros**_
-
-```
-    createdb -U <username> -T <tempalate> <dbname>
-```
-
-Ejecutando el comando
-
-```
-    createdb -U postgres -T gis lore
-```
-
-Listar todas las bases existentes
-
-```
-    psql -U postgres -l
-```
-
-![image](https://user-images.githubusercontent.com/88239150/178155564-ebb18b3f-6693-4d9c-b7c5-9f76facc4542.png)
-
-Ahora, debemos modificar la ruta de búsqueda de esquemas (search_path). Esto evitará que tengamos que llamar a las funciones espaciales anteponiendo el nombre del esquema
-
-```
-    psql -U postgres -d lore -c "ALTER DATABASE lore SET search_path = public,postgis,contrib"
-```
-
-![image](https://user-images.githubusercontent.com/88239150/178155726-d9384962-c703-417e-a1cd-8e4c6c0dd7ea.png)
-
-Finalmente, verificar que PostGIS se instalo correctamente:
-
-```
-    psql -U postgres -d lore -c "SELECT postgis_full_version()"
-```
-
-![image](https://user-images.githubusercontent.com/88239150/178155791-2d67fb92-4a44-4118-bf19-8986e0464adb.png)
+1. Contar una base de datos espacial configurada (Ver capitulo [Crear base de datos espacial ](https://chlopezgis.github.io/base_datos_espaciales/creacion)).
+2. Ser adminsitrador de la base de datos o tener privilegios para crear, insertar y eliminar tablas
+3. Descargar el material de trabajo en el siguiente link.
 
 ## 1. Importar y exportar datos tabulares con el comando COPY
 
 El comando **COPY** nos permite mover datos entre tablas de PostgreSQL y archivos de texto plano (CSV o TXT). 
 
-### COPY FROM
+### \COPY FROM
 
 * Permite copiar los datos de un archivo de texto plano a una tabla en PostgreSQL. 
 * Cada campo del archivo se inserta, en orden, en la columna especificada.
@@ -55,7 +21,7 @@ El comando **COPY** nos permite mover datos entre tablas de PostgreSQL y archivo
 **Sintaxis:**
 
 ```
-COPY table_name [ ( column_name [, ...] ) ]
+\COPY table_name [ ( column_name [, ...] ) ]
     FROM { 'filename' | PROGRAM 'command' | STDIN }
     [ [ WITH ] ( option [, ...] ) ]
     [ WHERE condition ]
@@ -88,7 +54,7 @@ Observamos que el archivo se encuentra delimitado por punto y coma (;) y tiene l
 * LON_X: Longitud (Númerico de 6 decimales)
 * LAT_Y: Latitud (Númerico de 6 decimales)
 
-**Paso 2.** Concetarse a la base de datos. A continuación, se muestra como conectarse con el cliente **psql** desde el simbolo del sistema:
+**Paso 2.** Concetarse a la base de datos espacial. A continuación, se muestra como conectarse con el cliente **psql** desde el simbolo del sistema:
 
 ```
     psql -U postgres lore
@@ -122,7 +88,7 @@ Observamos que el archivo se encuentra delimitado por punto y coma (;) y tiene l
 **Paso 4.** Ejecutar el comando **COPY FROM**
 
 ```
-    COPY data.comercios(id, ubigeo, cod_sect, cod_mzna, cod_lote, cod_piso, cod_edificacion, cod_uso, desc_uso, lon_x, lat_y) 
+    \COPY data.comercios(id, ubigeo, cod_sect, cod_mzna, cod_lote, cod_piso, cod_edificacion, cod_uso, desc_uso, lon_x, lat_y) 
     FROM 'D:\Charlie\05_Articulos\SpatialDB\data\cap02\comercios.csv' WITH CSV HEADER DELIMITER ';' ENCODING 'UTF-8';
 ```
 
@@ -156,14 +122,14 @@ Verificar que el proceso se ejecuto correctamente:
 ```
 ![image](https://user-images.githubusercontent.com/88239150/178389562-3c9d0474-8568-4266-b668-17208902fab6.png)
 
-### COPY TO
+### \COPY TO
 * Permite copiar el contenido de una tabla o los resultados de una consulta SELECT a un archivo de texto plano.
 * Si se especifica una lista de columnas, copia solo los datos de las columnas especificadas en el archivo. 
 
 **Sintaxis:**
 
 ```
-COPY { table_name [ ( column_name [, ...] ) ] | ( query ) }
+\COPY { table_name [ ( column_name [, ...] ) ] | ( query ) }
     TO { 'filename' | PROGRAM 'command' | STDOUT }
     [ [ WITH ] ( option [, ...] ) ]
 
@@ -176,8 +142,14 @@ Las opciones principales son:
     
 ```
 
-Ahora, vamos a exportar la información de comercios
+Exportar la información de comercios en coordenadas proyectadas
 
+**Paso 1.** Elaboraremos la consulta para exportar las columnas: id, ubigeo, cod_uso, desc_uso. Además, obtenedremos las coordenadas XY en coordenadas proyectadas (UTM WGS 84 Zona 18 S)
+
+```
+    SELECT id, ubigeo, cod_uso, desc_uso, ST_X(ST_Transform(geom, 32718
+    FROM data.comercios
+```
 
 ## 2. Importar Shapefiles con el comando shp2pgsql
 
