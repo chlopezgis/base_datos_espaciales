@@ -21,7 +21,7 @@ El comando **COPY** nos permite mover datos entre tablas de PostgreSQL y archivo
 **Sintaxis:**
 
 ```
-\COPY table_name [ ( column_name [, ...] ) ]
+COPY table_name [ ( column_name [, ...] ) ]
     FROM { 'filename' | PROGRAM 'command' | STDIN }
     [ [ WITH ] ( option [, ...] ) ]
     [ WHERE condition ]
@@ -88,8 +88,7 @@ Observamos que el archivo se encuentra delimitado por punto y coma (;) y tiene l
 **Paso 4.** Ejecutar el comando **COPY FROM**
 
 ```
-    \COPY data.comercios(id, ubigeo, cod_sect, cod_mzna, cod_lote, cod_piso, cod_edificacion, cod_uso, desc_uso, lon_x, lat_y) 
-    FROM 'D:\Charlie\05_Articulos\SpatialDB\data\cap02\comercios.csv' WITH CSV HEADER DELIMITER ';' ENCODING 'UTF-8';
+\COPY data.comercios(id, ubigeo, cod_sect, cod_mzna, cod_lote, cod_piso, cod_edificacion, cod_uso, desc_uso, lon_x, lat_y) FROM 'D:\Charlie\05_Articulos\SpatialDB\data\cap02\comercios.csv' WITH CSV HEADER DELIMITER ';' ENCODING 'UTF-8';
 ```
 
 **Paso 5.** Realizar una selección de la tabla para verificar que los registros se insertaron correctamente
@@ -129,7 +128,7 @@ Verificar que el proceso se ejecuto correctamente:
 **Sintaxis:**
 
 ```
-\COPY { table_name [ ( column_name [, ...] ) ] | ( query ) }
+COPY { table_name [ ( column_name [, ...] ) ] | ( query ) }
     TO { 'filename' | PROGRAM 'command' | STDOUT }
     [ [ WITH ] ( option [, ...] ) ]
 
