@@ -163,11 +163,24 @@ TO 'D:\salida\bazares_32718.csv' DELIMITER '|' CSV HEADER ENCODING 'UTF-8';
 ```
 ![image](https://user-images.githubusercontent.com/88239150/179317761-44a33630-1130-440b-ae4b-5b11fa488c65.png)
 
-**Paso 3.** Finalmente, ispeccionar el archivo de salida con un editor de texto
+**Paso 3.** Finalmente, inspeccionar el archivo de salida con un editor de texto
 
 ![image](https://user-images.githubusercontent.com/88239150/179318205-1b3dd565-c1a6-43ec-a0b0-a4c2a43435ee.png)
 
 ## 2. Importar Shapefiles con el comando shp2pgsql
+
+La utilidad shp2pgsql es una herramienta de linea de comandos que permite convertir archivos Shapefiles a SQL preparado para la inserción en una base de datos espacial.
+
+**Sintaxis**
+
+```
+shp2pgsql [<opciones>] <ruta_shapefile> [<esquema>.]<tabla> > <ruta_salida_sql>
+
+Opciones principales:
+* 
+```
+
+
 
 ## 3. Importar otros formatos vectoriales con el comando GDAL/ogr
 
