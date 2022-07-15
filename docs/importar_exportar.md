@@ -175,15 +175,14 @@ La utilidad shp2pgsql es una herramienta de linea de comandos que permite conver
 
 ```
 shp2pgsql [<options>] <shapefile> [[<schema>.]<table>]
- 
-```
+ ```
 Opciones:
 * -s <srid>: Establece el campo Sistema de Coordenadas. El valor predeterminado es 0.
 * (-d|a|c|p): Estas son opciones mutuamente excluyentes:
-    -d: Elimina la tabla, luego la vuelve a crear y la completa con los datos del Shapefile actual.
-    -a: Agrega el Shapefile a la tabla actual. Debe ser exactamente el mismo esquema de tabla.
-    -c: Crea una nueva tabla y la llena con los datos. Este es el valor predeterminado.
-    -p: Modo preparar, solo crea la tabla.
+    * d: Elimina la tabla, luego la vuelve a crear y la completa con los datos del Shapefile actual.
+    * a: Agrega el Shapefile a la tabla actual. Debe ser exactamente el mismo esquema de tabla.
+    * c: Crea una nueva tabla y la llena con los datos. Este es el valor predeterminado.
+    * p: Modo preparar, solo crea la tabla.
 * -g <geocolumn> Especifica el nombre de la columna geometría (usada habitualmente en modo -a)
 * -D Usa el formato Dump de postgresql
 * -G Usa tipo geogrfía, requiere datos de longitud y latitud
