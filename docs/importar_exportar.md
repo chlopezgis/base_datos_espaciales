@@ -1,8 +1,6 @@
 <center><h1>Cap 2. IMPORTAR Y EXPORTAR DATOS</h1></center>
 
-Los datos son el componente mas importante de un SIG ya que sin estos es imposible realizar cualquier análisis. Actualmente, existen muchas fuentes de datos disponibles que podemos incorporar como punto de partida en nuestra Base de Datos (previa evaluación de calidad). 
-
-En este capítulo se mostrarán las principales herramientas y procesos para importar y exportar datos geoespaciales, de diferentes formatos, en nuestra base de datos.
+Los datos son el componente mas importante de un SIG ya que sin estos es imposible realizar cualquier análisis. Actualmente, existen muchas fuentes de datos geoespaciales disponibles que podemos incorporar dentro de nuestros análisis. Por este motivo, en este tutorial se mostrarán las principales herramientas y procesos para importar y exportar datos de la base de datos espacial PostGIS.
 
 ## Ante de iniciar...
 
@@ -48,7 +46,8 @@ Finalmente, verificar que PostGIS se instalo correctamente:
 
 El comando **COPY** nos permite mover datos entre tablas de PostgreSQL y archivos de texto plano (CSV o TXT). 
 
-**COPY FROM**
+### COPY FROM
+
 * Permite copiar los datos de un archivo de texto plano a una tabla en PostgreSQL. 
 * Cada campo del archivo se inserta, en orden, en la columna especificada.
 * Las columnas de la tabla no especificadas recibirán sus valores predeterminados.
@@ -69,27 +68,7 @@ Las opciones principales son:
     ENCODING 'encoding_name'
 ```
 
-**COPY TO**
-* Permite copiar el contenido de una tabla o los resultados de una consulta SELECT a un archivo de texto plano.
-* Si se especifica una lista de columnas, copia solo los datos de las columnas especificadas en el archivo. 
-
-**Sintaxis:**
-
-```
-COPY { table_name [ ( column_name [, ...] ) ] | ( query ) }
-    TO { 'filename' | PROGRAM 'command' | STDOUT }
-    [ [ WITH ] ( option [, ...] ) ]
-
-Las opciones principales son:
-
-    FORMAT format_name
-    DELIMITER 'delimiter_character'
-    HEADER [ boolean ]
-    ENCODING 'encoding_name'
-    
-```
-
-A continuación, se detalla el flujo de trabajo a seguir para importar/exportar archivos CSV utilizando el comando COPY:
+A continuación, se detalla el flujo de trabajo a seguir para importar archivos CSV utilizando el comando COPY:
 
 **Paso 1.**  Con un editor de texto, inspeccionar la estructura del archivo que vamos a importar a PostgreSQL. Utilizaremos el archivo **comercios.csv** que contiene un listado de comercios levantados por COFOPRI.
 
@@ -177,7 +156,25 @@ Verificar que el proceso se ejecuto correctamente:
 ```
 ![image](https://user-images.githubusercontent.com/88239150/178389562-3c9d0474-8568-4266-b668-17208902fab6.png)
 
+### COPY TO
+* Permite copiar el contenido de una tabla o los resultados de una consulta SELECT a un archivo de texto plano.
+* Si se especifica una lista de columnas, copia solo los datos de las columnas especificadas en el archivo. 
 
+**Sintaxis:**
+
+```
+COPY { table_name [ ( column_name [, ...] ) ] | ( query ) }
+    TO { 'filename' | PROGRAM 'command' | STDOUT }
+    [ [ WITH ] ( option [, ...] ) ]
+
+Las opciones principales son:
+
+    FORMAT format_name
+    DELIMITER 'delimiter_character'
+    HEADER [ boolean ]
+    ENCODING 'encoding_name'
+    
+```
 
 
 
