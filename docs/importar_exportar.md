@@ -157,7 +157,9 @@ FROM data.comercios WHERE cod_uso = '34104' LIMIT 10;
 **Paso 2.** Ejecutar la consulta con el comando **COPY TO**.
 
 ```
-COPY (SELECT id, ubigeo, cod_uso, desc_uso, ST_X(ST_Transform(geom, 32718)) AS x, ST_Y(ST_Transform(geom, 32718)) as y FROM data.comercios WHERE cod_uso = '34104') TO 'D:\salida\bazares_32718.csv' DELIMITER '|' CSV HEADER ENCODING 'UTF-8';
+COPY (SELECT id, ubigeo, cod_uso, desc_uso, ST_X(ST_Transform(geom, 32718)) AS x, ST_Y(ST_Transform(geom, 32718)) as y 
+FROM data.comercios WHERE cod_uso = '34104')
+TO 'D:\salida\bazares_32718.csv' DELIMITER '|' CSV HEADER ENCODING 'UTF-8';
 ```
 ![image](https://user-images.githubusercontent.com/88239150/179317761-44a33630-1130-440b-ae4b-5b11fa488c65.png)
 
