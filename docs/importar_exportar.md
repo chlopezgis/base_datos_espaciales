@@ -1,4 +1,4 @@
-<center><h1>Cap 2. IMPORTAR Y EXPORTAR DATOS</h1></center>
+<center><h1>Importar y Exportar datos en PostGIS</h1></center>
 
 Los datos son el componente mas importante de un SIG ya que sin estos es imposible realizar cualquier análisis. Actualmente, existen muchas fuentes de datos geoespaciales disponibles que podemos incorporar dentro de nuestros análisis. Por este motivo, en este tutorial se mostrarán las principales herramientas y procesos para importar y exportar datos de la base de datos espacial PostGIS.
 
@@ -176,6 +176,7 @@ Las opciones principales son:
     
 ```
 
+Ahora, vamos a exportar la información de comercios
 
 
 ## 2. Importar Shapefiles con el comando shp2pgsql
