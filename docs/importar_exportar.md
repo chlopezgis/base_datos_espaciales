@@ -144,14 +144,16 @@ Las opciones principales son:
     
 ```
 
-Exportar la información de comercios en coordenadas proyectadas
+A continuación, exportaremos todos los Bazares en un archivo plano. Las coordenadas de salida deben estar re-proyectadas al sistema WGS 84/UTM zone 18S
 
-**Paso 1.** Elaboraremos la consulta para exportar las columnas: id, ubigeo, cod_uso, desc_uso. Además, obtenedremos las coordenadas XY en coordenadas proyectadas (UTM WGS 84 Zona 18 S)
+**Paso 1.** Elaboraremos la consulta para exportar las columnas id, ubigeo, cod_uso, desc_uso y las coordenadas X,Y reproyectadas.
 
 ```
-    SELECT id, ubigeo, cod_uso, desc_uso, ST_X(ST_Transform(geom, 32718
-    FROM data.comercios
+    SELECT id, ubigeo, cod_uso, desc_uso, ST_X(ST_Transform(geom, 32718)) AS x, ST_Y(ST_Transform(geom, 32718)) as y 
+    FROM data.comercios WHERE cod_uso = '34104';
 ```
+![image](https://user-images.githubusercontent.com/88239150/179316969-bd7df4e8-986a-48f8-be40-2da4212e6816.png)
+
 
 ## 2. Importar Shapefiles con el comando shp2pgsql
 
