@@ -2,4 +2,4 @@
 
 [1. Creación de una base de datos Espacial](https://chlopezgis.github.io/base_datos_espaciales/creacion)
 
-[2. Importar y exportar datos en PostGIS]
+[2. Importar y exportar datos en PostGIS](https://chlopezgis.github.io/base_datos_espaciales/importar_exportar)
