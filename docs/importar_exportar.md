@@ -57,13 +57,13 @@ Observamos que el archivo se encuentra delimitado por punto y coma (;) y tiene l
 **Paso 2.** Concetarse a la base de datos espacial. A continuación, se muestra como conectarse con el cliente **psql** desde el simbolo del sistema:
 
 ```
-    psql -U postgres lore
+psql -U postgres lore
 ```
 
 **Paso 3.** Crear un esquema de trabajo de nombre **data**
 
 ```
-    CREATE SCHEMA data;
+CREATE SCHEMA data;
 ```
 
 **Paso 4.** Crear la tabla con la estructura del archivo CSV respetando el orden de los campos. Tambien, agregar al final un campo de tipo geometría puntual con el sistema de referencia correspondiente.
@@ -99,14 +99,14 @@ Nota: Si no es superusuario de la base de datos debe anteponer la barra invertid
 Contar la cantidad de registros:
 
 ```
-    SELECT COUNT(*) AS cantidad FROM data.comercios;
+SELECT COUNT(*) AS cantidad FROM data.comercios;
 ``` 
 ![image](https://user-images.githubusercontent.com/88239150/178388439-59ef9675-9ed2-4d3b-943b-16694f414d69.png)
 
 Mostrar los primeros 10 registros:
 
 ```
-    SELECT id, ubigeo, cod_uso, desc_uso, lon_x, lat_y FROM data.comercios LIMIT 10;
+SELECT id, ubigeo, cod_uso, desc_uso, lon_x, lat_y FROM data.comercios LIMIT 10;
 ```
 
 ![image](https://user-images.githubusercontent.com/88239150/178388694-5f50e1b0-afe5-4721-beb7-1909ebf48616.png)
@@ -114,13 +114,13 @@ Mostrar los primeros 10 registros:
 **Paso 6.** Ahora vamos a calcular la geometría a partir de las coordenadas de los comercios
 
 ```
-    UPDATE data.comercios SET geom = ST_GeomFromText('POINT('||lon_x||' '||lat_y||')', 4326);
+UPDATE data.comercios SET geom = ST_GeomFromText('POINT('||lon_x||' '||lat_y||')', 4326);
 ```
 
 Verificar que el proceso se ejecuto correctamente:
 
 ```
-    SELECT id, cod_uso, desc_uso, ST_AsText(geom) AS geom_text FROM data.comercios LIMIT 10;
+SELECT id, cod_uso, desc_uso, ST_AsText(geom) AS geom_text FROM data.comercios LIMIT 10;
 ```
 ![image](https://user-images.githubusercontent.com/88239150/178389562-3c9d0474-8568-4266-b668-17208902fab6.png)
 
@@ -149,11 +149,10 @@ A continuación, exportaremos todos los Bazares en un archivo plano. Las coorden
 **Paso 1.** Elaboraremos la consulta para exportar las columnas id, ubigeo, cod_uso, desc_uso y las coordenadas X,Y reproyectadas.
 
 ```
-    SELECT id, ubigeo, cod_uso, desc_uso, ST_X(ST_Transform(geom, 32718)) AS x, ST_Y(ST_Transform(geom, 32718)) as y 
-    FROM data.comercios WHERE cod_uso = '34104';
+SELECT id, ubigeo, cod_uso, desc_uso, ST_X(ST_Transform(geom, 32718)) AS x, ST_Y(ST_Transform(geom, 32718)) as y 
+FROM data.comercios WHERE cod_uso = '34104';
 ```
 ![image](https://user-images.githubusercontent.com/88239150/179316969-bd7df4e8-986a-48f8-be40-2da4212e6816.png)
-
 
 ## 2. Importar Shapefiles con el comando shp2pgsql
 
