@@ -5,7 +5,7 @@ Los datos son el componente mas importante de un SIG ya que sin estos es imposib
 ## Antes de iniciar...
 
 1. Contar una base de datos espacial configurada (Ver capitulo [Crear base de datos espacial ](https://chlopezgis.github.io/base_datos_espaciales/creacion)).
-2. Ser adminsitrador de la base de datos o tener privilegios para crear, insertar y eliminar tablas
+2. Ser adminsitrador de la base de datos o tener privilegios para crear y eliminar entidades.
 3. Descargar el material de trabajo en el siguiente link.
 
 ## 1. Importar y exportar datos tabulares con el comando COPY
