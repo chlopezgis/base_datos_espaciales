@@ -6,7 +6,7 @@ En este capítulo se mostrarán las principales herramientas y procesos para imp
 
 ## Ante de iniciar...
 
-Crear una base de datos espacial tomando como plantilla la base de datos creada en el capitulo anterior (ver [aquí](https://chlopezgis.github.io/base_datos_espaciales/creacion))
+Crear una base de datos espacial tomando como plantilla la base de datos creada en el capitulo anterior (Crear base de datos espacial [aquí](https://chlopezgis.github.io/base_datos_espaciales/creacion))
 
 _**NOTA: Los comandos se ejecutaran desde el servidor y utilizando el puerto por defecto, por lo que a lo largo del tutorial omitiremos estos parámetros**_
 
