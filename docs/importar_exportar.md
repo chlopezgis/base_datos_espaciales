@@ -88,7 +88,8 @@ Observamos que el archivo se encuentra delimitado por punto y coma (;) y tiene l
 **Paso 4.** Ejecutar el comando **COPY FROM**
 
 ```
-COPY data.comercios(id, ubigeo, cod_sect, cod_mzna, cod_lote, cod_piso, cod_edificacion, cod_uso, desc_uso, lon_x, lat_y) FROM 'D:\Charlie\05_Articulos\SpatialDB\data\cap02\comercios.csv' WITH CSV HEADER DELIMITER ';' ENCODING 'UTF-8';
+COPY data.comercios(id, ubigeo, cod_sect, cod_mzna, cod_lote, cod_piso, cod_edificacion, cod_uso, desc_uso, lon_x, lat_y) 
+FROM 'D:\Charlie\05_Articulos\SpatialDB\data\cap02\comercios.csv' WITH CSV HEADER DELIMITER ';' ENCODING 'UTF-8';
 ```
 
 Nota: Si no es superusuario de la base de datos debe anteponer la barra invertida: **\COPY**
@@ -123,7 +124,7 @@ Verificar que el proceso se ejecuto correctamente:
 ```
 ![image](https://user-images.githubusercontent.com/88239150/178389562-3c9d0474-8568-4266-b668-17208902fab6.png)
 
-### \COPY TO
+### COPY TO
 * Permite copiar el contenido de una tabla o los resultados de una consulta SELECT a un archivo de texto plano.
 * Si se especifica una lista de columnas, copia solo los datos de las columnas especificadas en el archivo. 
 
