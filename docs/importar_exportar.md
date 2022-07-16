@@ -87,7 +87,7 @@ CREATE TABLE data.comercios(
 );
 ```
 
-**Paso 4.** Ejecutar el comando **COPY FROM**
+**Paso 5.** Ejecutar el comando **COPY FROM**
 
 ```
 COPY data.comercios(id
@@ -107,7 +107,7 @@ WITH CSV HEADER DELIMITER ';' ENCODING 'UTF-8';
 
 Nota: Si no es superusuario de la base de datos debe anteponer la barra invertida: **\COPY**
 
-**Paso 5.** Realizar una selección de la tabla para verificar que los registros se insertaron correctamente
+**Paso 6.** Realizar una selección de la tabla para verificar que los registros se insertaron correctamente
 
 Contar la cantidad de registros:
 
@@ -124,7 +124,7 @@ SELECT id, ubigeo, cod_uso, desc_uso, lon_x, lat_y FROM data.comercios LIMIT 10;
 
 ![image](https://user-images.githubusercontent.com/88239150/178388694-5f50e1b0-afe5-4721-beb7-1909ebf48616.png)
 
-**Paso 6.** Ahora vamos a calcular la geometría a partir de las coordenadas de los comercios
+**Paso 7.** Ahora vamos a calcular la geometría a partir de las coordenadas de los comercios
 
 ```
 UPDATE data.comercios SET geom = ST_GeomFromText('POINT('||lon_x||' '||lat_y||')', 4326);
