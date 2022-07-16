@@ -197,11 +197,9 @@ Opciones:
 * -N <policy>: Política de manejo de geometrías NULL (insert*, skip, abort).
 * -n: Solo importa el archivo DBF.
 * -T <tablespace>: Especifique el tablespace para la nueva tabla. Tenga en cuenta que los índices seguirán utilizando el espacio de tabla predeterminado a menos que también se utilice el indicador -X.
-* -X <tablespace>: Especifique el tablespace para los índices de la tabla.
-      Esto se aplica a la clave principal y al índice espacial si
-      se utiliza el indicador -I.
+* -X <tablespace>: Especifique el tablespace para los índices de la tabla. Esto se aplica a la clave principal y al índice espacial si se utiliza el indicador -I.
+* -Z: Evita que se analicen las tablas.
 * -?: Muestra la ayuda
-
 
 ## 3. Importar otros formatos vectoriales con el comando GDAL/ogr
 
