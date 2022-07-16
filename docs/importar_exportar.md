@@ -247,7 +247,23 @@ Consdieraciones:
 * **\>**: Redirige la salida del comando a un archivo
 * **"data/cap02/hab_urbanas.sql"**: Archivo en formato SQL que almacena la salida del comando shp2pgsql (Incluye la ruta)
 
-2. 
+2. Con un editor de texto inspeccionar el archivo "hab_urbanas.sql".
+
+![image](https://user-images.githubusercontent.com/88239150/179329973-786c0c68-a1ef-40a8-8f21-069631fb83db.png)
+
+Como se observa, el archivo tiene las sentencias SQL para crear la tabla e insertar los registros en esta.
+
+3. Con el comando psql ejecutaremos el archivo SQL en la base de datos
+
+```
+psql -U postgres -d lore -f "data/cap02/hab_urbanas.sql"
+```
+![image](https://user-images.githubusercontent.com/88239150/179330968-87dad381-5fe5-4f11-b37d-af5dfcd58122.png)
+
+4. Conectarse con PgAdmin para verificar graficamente que el shapefile se cargó correctamente
+
+![image](https://user-images.githubusercontent.com/88239150/179332178-48f8bf0c-a25d-4715-b776-fd7440bd04ea.png)
+
 
 ## 3. Importar otros formatos vectoriales con el comando GDAL/ogr
 
