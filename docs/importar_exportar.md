@@ -180,27 +180,27 @@ Opciones:
 
 * **-s \[\<from\>:\]\<srid\>**: Establece el Sistema de Coordenadas. El valor predeterminado es 0. Opcionalmente reproyecta desde un SRID dado.
 * **(-d|a|c|p)**: Estas son opciones mutuamente excluyentes:
-    * -d: Elimina la tabla, luego la vuelve a crear y la completa con los datos del Shapefile actual.
-    * -a: Agrega el Shapefile a la tabla actual. Debe ser exactamente el mismo esquema de tabla.
-    * -c: Crea una nueva tabla y la llena con los datos. Este es el valor predeterminado.
-    * -p: Modo preparar, solo crea la tabla.
-* -g <geocolumn>: Especifica el nombre de la columna geometría/geogrefía (principalmente útil en el modo de adición "-a").
-* -D: Usar el formato Dump de postgresql.
-* -e: Ejecuta cada declaración individualmente, no usa una transacción. No compatible con -D.
-* -G: Usar tipo geografía (requiere datos de longitud/latitud o -s para reproyectar).
-* -k: Mantener mayúsculas y minúsculas en los identificadores de postgresql
-* -i: Usa int4 para todos los campos enteros del dbf
-* -I: Crea un índice spacial en la columna de la geometría
-* -S: Genera geometrías simples en vez de geometrías MULTI
-* -t <dimensionality>: Fuerza a la geometría a ser una de '2D', '3DZ', '3DM' o '4D'
-* -w: Salida WKT en lugar de WKB. Tenga en cuenta que esto puede resultar en una desviación de coordenadas.
-* -W <encoding>: Especifica la codificación de los caracteres (predeterminado: "UTF-8").
-* -N <policy>: Política de manejo de geometrías NULL (insert*, skip, abort).
-* -n: Solo importa el archivo DBF.
-* -T <tablespace>: Especifique el tablespace para la nueva tabla. Tenga en cuenta que los índices seguirán utilizando el espacio de tabla predeterminado a menos que también se utilice el indicador -X.
-* -X <tablespace>: Especifique el tablespace para los índices de la tabla. Esto se aplica a la clave principal y al índice espacial si se utiliza el indicador -I.
-* -Z: Evita que se analicen las tablas.
-* -?: Muestra la ayuda
+    * **-d**: Elimina la tabla, luego la vuelve a crear y la completa con los datos del Shapefile actual.
+    * **-a**: Agrega el Shapefile a la tabla actual. Debe ser exactamente el mismo esquema de tabla.
+    * **-c**: Crea una nueva tabla y la llena con los datos. Este es el valor predeterminado.
+    * **-p**: Modo preparar, solo crea la tabla.
+* **-g \<geocolumn\>**: Especifica el nombre de la columna geometría/geogrefía (principalmente útil en el modo de adición "-a").
+* **-D:** Usar el formato Dump de postgresql.
+* **-e:** Ejecuta cada declaración individualmente, no usa una transacción. No compatible con -D.
+* **-G**: Usar tipo geografía (requiere datos de longitud/latitud o -s para reproyectar).
+* **-k**: Mantener mayúsculas y minúsculas en los identificadores de postgresql
+* **-i**: Usa int4 para todos los campos enteros del dbf
+* **-I**: Crea un índice spacial en la columna de la geometría
+* **-S**: Genera geometrías simples en vez de geometrías MULTI
+* **-t \<dimensionality\>**: Fuerza a la geometría a ser una de '2D', '3DZ', '3DM' o '4D'
+* **-w**: Salida WKT en lugar de WKB. Tenga en cuenta que esto puede resultar en una desviación de coordenadas.
+* **-W \<encoding\>**: Especifica la codificación de los caracteres (predeterminado: "UTF-8").
+* **-N \<policy\>**: Política de manejo de geometrías NULL (insert*, skip, abort).
+* **-n**: Solo importa el archivo DBF.
+* **-T \<tablespace\>**: Especifique el tablespace para la nueva tabla. Tenga en cuenta que los índices seguirán utilizando el espacio de tabla predeterminado a menos que también se utilice el indicador -X.
+* **-X \<tablespace\>**: Especifique el tablespace para los índices de la tabla. Esto se aplica a la clave principal y al índice espacial si se utiliza el indicador -I.
+* **-Z**: Evita que se analicen las tablas.
+* **-?**: Muestra la ayuda
 
 
 ## 3. Importar otros formatos vectoriales con el comando GDAL/ogr
