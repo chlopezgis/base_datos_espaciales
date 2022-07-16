@@ -184,7 +184,7 @@ Opciones:
     * **-a**: Agrega el Shapefile a la tabla actual. Debe ser exactamente el mismo esquema de tabla.
     * **-c**: Crea una nueva tabla y la llena con los datos. Este es el valor predeterminado.
     * **-p**: Modo preparar, solo crea la tabla.
-* **-g \<geocolumn\>**: Especifica el nombre de la columna geometría/geogrefía (principalmente útil en el modo de adición "-a").
+* **-g \<geocolumn\>**: Especifica el nombre de la columna geometría/geografía (principalmente útil en el modo de adición "-a").
 * **-D:** Usar el formato Dump de postgresql.
 * **-e:** Ejecuta cada declaración individualmente, no usa una transacción. No compatible con -D.
 * **-G**: Usar tipo geografía (requiere datos de longitud/latitud o -s para reproyectar).
