@@ -229,7 +229,25 @@ Opciones:
 * **-Z**: Evita que se analicen las tablas.
 * **-?**: Muestra la ayuda
 
+Para este ejemplo, importaremos una capa de polígonos de Habilitaciones Urbanas (hab_urbanas.shp):
 
+1. Convertir el archivo Shapefile a SQL
+
+```
+shp2pgsql -s 4326 -I -g geom "data/cap02/hab_urbanas.shp" data.hab_urbanas > "data/cap02/hab_urbanas.sql"
+```
+![image](https://user-images.githubusercontent.com/88239150/179329727-2093f0e3-21a5-4a63-8679-53588e82f4e8.png)
+
+Consdieraciones:
+* -s: Se especifica el sistema de referencia WGS84 (EPSG 4326)
+* -I: Se creará un índice espacial
+* -g: Se especifica el nombre de la geocolumna como "geom"
+* "cap02/hab_urbanas.shp": Shapefile (Incluye la ruta)
+* data.urbanas: Nombre de la tabla de salida que incluye el esquema.
+* \>: Redirige la salida del comando a un archivo
+* "data/cap02/hab_urbanas.sql": Archivo en formato SQL que almacena la salida del comando shp2pgsql (Incluye la ruta)
+
+2. 
 
 ## 3. Importar otros formatos vectoriales con el comando GDAL/ogr
 
