@@ -30,11 +30,12 @@ COPY table_name [ ( column_name [, ...] ) ]
 
 Las opciones principales son:
 
-    * FORMAT format_name
-    * DELIMITER 'delimiter_character'
-    * HEADER [ boolean ]
-    * ENCODING 'encoding_name'
-
+```
+    FORMAT format_name
+    DELIMITER 'delimiter_character'
+    HEADER [ boolean ]
+    ENCODING 'encoding_name'
+```
 
 A continuación, se detalla el flujo de trabajo a seguir para importar archivos CSV utilizando el comando COPY:
 
@@ -147,9 +148,11 @@ SELECT id, cod_uso, desc_uso, ST_AsText(geom) AS geom_text FROM data.comercios L
 COPY { table_name [ ( column_name [, ...] ) ] | ( query ) }
     TO { 'filename' | PROGRAM 'command' | STDOUT }
     [ [ WITH ] ( option [, ...] ) ]
+```
 
 Las opciones principales son:
 
+```
     FORMAT format_name
     DELIMITER 'delimiter_character'
     HEADER [ boolean ]
