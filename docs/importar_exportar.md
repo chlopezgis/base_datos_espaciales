@@ -25,7 +25,6 @@ COPY table_name [ ( column_name [, ...] ) ]
     FROM { 'filename' | PROGRAM 'command' | STDIN }
     [ [ WITH ] ( option [, ...] ) ]
     [ WHERE condition ]
-
 ```
 
 Las opciones principales son:
@@ -156,8 +155,7 @@ Las opciones principales son:
     FORMAT format_name
     DELIMITER 'delimiter_character'
     HEADER [ boolean ]
-    ENCODING 'encoding_name'
-    
+    ENCODING 'encoding_name'  
 ```
 
 A continuación, exportaremos todos los Bazares en un archivo plano. Las coordenadas de salida deben estar re-proyectadas al sistema WGS 84/UTM zone 18S
@@ -189,6 +187,7 @@ COPY (SELECT
 FROM data.comercios WHERE cod_uso = '34104')
 TO 'D:\salida\bazares_32718.csv' DELIMITER '|' CSV HEADER ENCODING 'UTF-8';
 ```
+
 ![image](https://user-images.githubusercontent.com/88239150/179317761-44a33630-1130-440b-ae4b-5b11fa488c65.png)
 
 **Paso 3.** Finalmente, inspeccionar el archivo de salida con un editor de texto
