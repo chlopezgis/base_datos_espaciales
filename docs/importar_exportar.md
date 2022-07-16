@@ -71,7 +71,7 @@ CREATE SCHEMA data;
 **Paso 4.** Crear la tabla con la estructura del archivo CSV respetando el orden de los campos. Tambien, agregar al final un campo de tipo geometría puntual con el sistema de referencia correspondiente.
 
 ```
-    CREATE TABLE data.comercios(
+CREATE TABLE data.comercios(
             id integer PRIMARY KEY
             , ubigeo CHAR(6) NOT NULL
             , cod_sect CHAR(2) NOT NULL
@@ -84,7 +84,7 @@ CREATE SCHEMA data;
             , lon_x NUMERIC(10,6) NOT NULL
             , lat_y NUMERIC(10,6) NOT NULL
             , geom GEOMETRY(POINT, 4326)
-    );
+);
 ```
 
 **Paso 4.** Ejecutar el comando **COPY FROM**
