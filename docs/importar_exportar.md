@@ -1,12 +1,12 @@
 <center><h1>Importar y Exportar datos en PostGIS</h1></center>
 
-Los datos son el componente mas importante de un SIG ya que sin estos es imposible realizar cualquier análisis. Actualmente, existen muchas fuentes de datos geoespaciales disponibles que podemos incorporar dentro de nuestros análisis. Por este motivo, en este tutorial se mostrarán las principales herramientas y procesos para importar y exportar datos de la base de datos espacial PostGIS.
+Los datos son el componente mas importante de un SIG ya que sin estos es imposible realizar cualquier análisis. Actualmente, existen muchas fuentes de datos geoespaciales disponibles que podemos incorporar dentro de nuestra base de datos. Por este motivo, en este tutorial se mostrarán las principales herramientas y procesos para importar y exportar datos de diferentes formatos.
 
 ## Antes de iniciar...
 
 1. Contar una base de datos espacial configurada (Ver capitulo [Crear base de datos espacial ](https://chlopezgis.github.io/base_datos_espaciales/creacion)).
 2. Ser adminsitrador de la base de datos o tener privilegios para crear y eliminar entidades.
-3. Descargar el material de trabajo en el siguiente link.
+3. Descargar los datos del siguiente link.
 
 ## 1. Importar y exportar datos tabulares con el comando COPY
 
@@ -228,6 +228,7 @@ Opciones:
 * **-X \<tablespace\>**: Especifique el tablespace para los índices de la tabla. Esto se aplica a la clave principal y al índice espacial si se utiliza el indicador -I.
 * **-Z**: Evita que se analicen las tablas.
 * **-?**: Muestra la ayuda
+
 
 
 ## 3. Importar otros formatos vectoriales con el comando GDAL/ogr
