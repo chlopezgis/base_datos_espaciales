@@ -177,7 +177,7 @@ La utilidad shp2pgsql es una herramienta de linea de comandos que permite conver
 shp2pgsql [<options>] <shapefile> [[<schema>.]<table>]
  ```
 Opciones:
-* -s \[<from>:]<srid>: Establece el Sistema de Coordenadas. El valor predeterminado es 0. Opcionalmente reproyecta desde un SRID dado.
+* -s <srid>: Establece el Sistema de Coordenadas. El valor predeterminado es 0. Opcionalmente reproyecta desde un SRID dado.
 * (-d|a|c|p): Estas son opciones mutuamente excluyentes:
     * -d: Elimina la tabla, luego la vuelve a crear y la completa con los datos del Shapefile actual.
     * -a: Agrega el Shapefile a la tabla actual. Debe ser exactamente el mismo esquema de tabla.
