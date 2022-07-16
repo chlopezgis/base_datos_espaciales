@@ -165,7 +165,13 @@ A continuación, exportaremos todos los Bazares en un archivo plano. Las coorden
 **Paso 1.** Elaborar la consulta filtrando solo los BAZARES y considerando solo las columnas de: id, ubigeo, cod_uso, desc_uso y las coordenadas X,Y reproyectadas.
 
 ```
-SELECT id, ubigeo, cod_uso, desc_uso, ST_X(ST_Transform(geom, 32718)) AS x, ST_Y(ST_Transform(geom, 32718)) as y 
+SELECT 
+        id
+        , ubigeo
+        , cod_uso
+        , desc_uso
+        , ST_X(ST_Transform(geom, 32718)) AS x
+        , ST_Y(ST_Transform(geom, 32718)) as y 
 FROM data.comercios WHERE cod_uso = '34104' LIMIT 10;
 ```
 ![image](https://user-images.githubusercontent.com/88239150/179316969-bd7df4e8-986a-48f8-be40-2da4212e6816.png)
@@ -173,7 +179,13 @@ FROM data.comercios WHERE cod_uso = '34104' LIMIT 10;
 **Paso 2.** Ejecutar la consulta con el comando **COPY TO**.
 
 ```
-COPY (SELECT id, ubigeo, cod_uso, desc_uso, ST_X(ST_Transform(geom, 32718)) AS x, ST_Y(ST_Transform(geom, 32718)) as y 
+COPY (SELECT 
+            id
+            , ubigeo
+            , cod_uso
+            , desc_uso
+            , ST_X(ST_Transform(geom, 32718)) AS x
+            , ST_Y(ST_Transform(geom, 32718)) as y 
 FROM data.comercios WHERE cod_uso = '34104')
 TO 'D:\salida\bazares_32718.csv' DELIMITER '|' CSV HEADER ENCODING 'UTF-8';
 ```
