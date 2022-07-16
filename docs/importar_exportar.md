@@ -12,7 +12,7 @@ Los datos son el componente mas importante de un SIG ya que sin estos es imposib
 
 El comando **COPY** nos permite mover datos entre tablas de PostgreSQL y archivos de texto plano (CSV o TXT). 
 
-### \COPY FROM
+### COPY FROM
 
 * Permite copiar los datos de un archivo de texto plano a una tabla en PostgreSQL. 
 * Cada campo del archivo se inserta, en orden, en la columna especificada.
@@ -26,13 +26,15 @@ COPY table_name [ ( column_name [, ...] ) ]
     [ [ WITH ] ( option [, ...] ) ]
     [ WHERE condition ]
 
+```
+
 Las opciones principales son:
 
-    FORMAT format_name
-    DELIMITER 'delimiter_character'
-    HEADER [ boolean ]
-    ENCODING 'encoding_name'
-```
+    * FORMAT format_name
+    * DELIMITER 'delimiter_character'
+    * HEADER [ boolean ]
+    * ENCODING 'encoding_name'
+
 
 A continuación, se detalla el flujo de trabajo a seguir para importar archivos CSV utilizando el comando COPY:
 
@@ -88,8 +90,19 @@ CREATE SCHEMA data;
 **Paso 4.** Ejecutar el comando **COPY FROM**
 
 ```
-COPY data.comercios(id, ubigeo, cod_sect, cod_mzna, cod_lote, cod_piso, cod_edificacion, cod_uso, desc_uso, lon_x, lat_y) 
-FROM 'D:\Charlie\05_Articulos\SpatialDB\data\cap02\comercios.csv' WITH CSV HEADER DELIMITER ';' ENCODING 'UTF-8';
+COPY data.comercios(id
+                    , ubigeo
+                    , cod_sect
+                    , cod_mzna
+                    , cod_lote
+                    , cod_piso
+                    , cod_edificacion
+                    , cod_uso
+                    , desc_uso
+                    , lon_x
+                    , lat_y) 
+FROM 'D:\Charlie\05_Articulos\SpatialDB\data\cap02\comercios.csv' 
+WITH CSV HEADER DELIMITER ';' ENCODING 'UTF-8';
 ```
 
 Nota: Si no es superusuario de la base de datos debe anteponer la barra invertida: **\COPY**
