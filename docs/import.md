@@ -210,7 +210,7 @@ psql -U postgres -d lore -f "data/cap02/hab_urbanas.sql"
 
 GDAL/OGR (Geospatial Data Abstraction Library) es una biblioteca traductora de formatos de datos geoespaciales ráster y vectorial. Es libre y de código abierto. 
 
-OGR presenta algoritmos para el manejo de datos geoespaciales vectoriales, los mas importantes son:
+OGR presenta los algoritmos para el manejo de datos geoespaciales vectoriales, siendo los mas importantes:
 
 * **ogrinfo**: Obtiene la información de una fuente de datos soportada por OGR.
 * **ogr2ogr**: Conjunto de herramientas que permite la conversión de datos entre diferentes formatos. También puede realizar varias operaciones durante el proceso, como la selección espacial o de atributos, la reducción del conjunto de atributos, la configuración del sistema de coordenadas de salida o incluso la reproyección de las características durante la traducción.
