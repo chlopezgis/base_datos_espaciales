@@ -265,6 +265,8 @@ ogr2ogr [--help-general] [-skipfailures] [-append] [-update]
         [-nomd] [-mo "META-TAG=VALUE"]* [-noNativeData]
 ```
 
+Para esta práctica 
+
 
 ## 4. Importar ráster con el comando raster2pgsql
 
