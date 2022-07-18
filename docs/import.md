@@ -1,6 +1,6 @@
 <center><h1>Importar y Exportar datos en PostGIS</h1></center>
 
-Los datos son el componente mas importante de un SIG ya que sin estos es imposible realizar cualquier análisis. Actualmente, existen muchas fuentes de datos geoespaciales disponibles que podemos incorporar dentro de nuestra base de datos. Por este motivo, en este tutorial se mostrarán las principales herramientas y procesos para importar y exportar datos de diferentes formatos.
+Los datos son el componente mas importante de un SIG ya que sin estos es imposible realizar cualquier análisis. Actualmente, existen muchas fuentes de datos geoespaciales disponibles que podemos incorporar dentro de nuestra base de datos. Por este motivo, en este tutorial se mostrarán las principales herramientas y procesos para importar datos de diferentes formatos.
 
 ## Antes de iniciar...
 
