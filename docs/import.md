@@ -216,17 +216,54 @@ OGR presenta los algoritmos para el manejo de datos geoespaciales vectoriales, s
 
 ```
 ogrinfo [--help-general] [-ro] [-q] [-where restricted_where|@filename]
-               [-spat xmin ymin xmax ymax] [-geomfield field] [-fid fid]
-               [-sql statement|@filename] [-dialect sql_dialect] [-al] [-rl] [-so] [-fields={YES/NO}]
-               [-geom={YES/NO/SUMMARY}] [[-oo NAME=VALUE] ...]
-               [-nomd] [-listmdd] [-mdd domain|`all`]*
-               [-nocount] [-noextent] [-nogeomtype] [-wkt_format WKT1|WKT2|...]
-               [-fielddomain name]
-               datasource_name [layer [layer ...]]
+        [-spat xmin ymin xmax ymax] [-geomfield field] [-fid fid]
+        [-sql statement|@filename] [-dialect sql_dialect] [-al] [-rl] [-so] [-fields={YES/NO}]
+        [-geom={YES/NO/SUMMARY}] [[-oo NAME=VALUE] ...]
+        [-nomd] [-listmdd] [-mdd domain|`all`]*
+        [-nocount] [-noextent] [-nogeomtype] [-wkt_format WKT1|WKT2|...]
+        [-fielddomain name]
+        datasource_name [layer [layer ...]]
 ```
 
 * **ogr2ogr**: Conjunto de herramientas que permite la conversión de datos entre diferentes formatos. También puede realizar varias operaciones durante el proceso, como la selección espacial o de atributos, la reducción del conjunto de atributos, la configuración del sistema de coordenadas de salida o incluso la reproyección de las características durante la traducción.
 
+```
+ogr2ogr [--help-general] [-skipfailures] [-append] [-update]
+        [-select field_list] [-where restricted_where|@filename]
+        [-progress] [-sql <sql statement>|@filename] [-dialect dialect]
+        [-preserve_fid] [-fid FID] [-limit nb_features]
+        [-spat xmin ymin xmax ymax] [-spat_srs srs_def] [-geomfield field]
+        [-a_srs srs_def] [-t_srs srs_def] [-s_srs srs_def] [-ct string]
+        [-f format_name] [-overwrite] [[-dsco NAME=VALUE] ...]
+        dst_datasource_name src_datasource_name
+        [-lco NAME=VALUE] [-nln name]
+        [-nlt type|PROMOTE_TO_MULTI|CONVERT_TO_LINEAR|CONVERT_TO_CURVE]
+        [-dim XY|XYZ|XYM|XYZM|2|3|layer_dim] [layer [layer ...]]
+
+        # Advanced options
+        [-gt n]
+        [[-oo NAME=VALUE] ...] [[-doo NAME=VALUE] ...]
+        [-clipsrc [xmin ymin xmax ymax]|WKT|datasource|spat_extent]
+        [-clipsrcsql sql_statement] [-clipsrclayer layer]
+        [-clipsrcwhere expression]
+        [-clipdst [xmin ymin xmax ymax]|WKT|datasource]
+        [-clipdstsql sql_statement] [-clipdstlayer layer]
+        [-clipdstwhere expression]
+        [-wrapdateline] [-datelineoffset val]
+        [[-simplify tolerance] | [-segmentize max_dist]]
+        [-makevalid]
+        [-addfields] [-unsetFid] [-emptyStrAsNull]
+        [-relaxedFieldNameMatch] [-forceNullable] [-unsetDefault]
+        [-fieldTypeToString All|(type1[,type2]*)] [-unsetFieldWidth]
+        [-mapFieldType type1|All=type2[,type3=type4]*]
+        [-fieldmap identity | index1[,index2]*]
+        [-splitlistfields] [-maxsubfields val]
+        [-resolveDomains]
+        [-explodecollections] [-zfield field_name]
+        [-gcp ungeoref_x ungeoref_y georef_x georef_y [elevation]]* [-order n | -tps]
+        [[-s_coord_epoch epoch] | [-t_coord_epoch epoch] | [-a_coord_epoch epoch]]
+        [-nomd] [-mo "META-TAG=VALUE"]* [-noNativeData]
+```
 
 
 ## 4. Importar ráster con el comando raster2pgsql
