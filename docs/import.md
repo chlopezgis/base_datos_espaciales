@@ -9,7 +9,7 @@ Los datos son el componente mas importante de un SIG ya que sin estos es imposib
 
 ## 1. Importar datos tabulares con el comando COPY
 
-El comando **COPY** nos permite mover datos entre tablas de PostgreSQL y archivos de texto plano (CSV o TXT). 
+El comando **COPY** nos permite mover datos entre archivos de texto plano (CSV o TXT) y tablas de PostrgeSQL. 
 
 ### COPY FROM
 
@@ -138,7 +138,7 @@ SELECT id, cod_uso, desc_uso, ST_AsText(geom) AS geom_text FROM data.comercios L
 
 ## 2. Importar Shapefiles con el comando shp2pgsql
 
-La utilidad shp2pgsql es una herramienta de linea de comandos que permite convertir archivos Shapefiles a SQL preparado para la inserción en una base de datos espacial.
+La utilidad shp2pgsql es una herramienta de linea de comandos que permite convertir archivos Shapefiles a formato SQL, diseñado para la inserción en una base de datos espacial.
 
 **Sintaxis**
 
@@ -181,13 +181,13 @@ shp2pgsql -s 4326 -I -g geom "data/cap02/hab_urbanas.shp" data.hab_urbanas > "da
 ![image](https://user-images.githubusercontent.com/88239150/179329727-2093f0e3-21a5-4a63-8679-53588e82f4e8.png)
 
 __Consideraciones__:
-* **-s**: Especifica el sistema de referencia WGS84 (EPSG 4326)
-* **-I**: Crea un índice espacial
-* **-g**: Especifica el nombre de la geocolumna como "geom"
-* **"cap02/hab_urbanas.shp"**: Shapefile de entrada (Incluye la ruta)
-* **data.hab_urbanas**: Nombre de la tabla SQL que incluye el esquema.
-* **\>**: Redirige la salida del comando a un archivo
-* **"data/cap02/hab_urbanas.sql"**: Archivo en formato SQL que almacena la salida del comando shp2pgsql (Incluye la ruta)
+* **-s**: Especificar el sistema de referencia WGS84 (EPSG 4326)
+* **-I**: Crear un índice espacial
+* **-g**: Especificar el nombre de la geocolumna como: "geom"
+* **"cap02/hab_urbanas.shp"**: Indicar el Shapefile de entrada (incluye la ruta)
+* **data.hab_urbanas**: Indicar el nombre con la que se creará la tabla SQL (incluye el esquema).
+* **\>**: Redirigir la salida del comando shp2pgsql a un archivo (en este caso un archivo sql)
+* **"data/cap02/hab_urbanas.sql"**: Indicar el nombre de salida del archivo SQL (incluye la ruta)
 
 **Paso 2.** Con un editor de texto inspeccionar el archivo "hab_urbanas.sql".
 
@@ -195,7 +195,7 @@ __Consideraciones__:
 
 Como se observa, el archivo tiene las sentencias SQL para crear la tabla e insertar los registros en esta.
 
-**Paso 3.** Con el comando psql ejecutaremos el archivo SQL en la base de datos
+**Paso 3.** Con el comando psql ejecutaremos el archivo SQL en la base de datos.
 
 ```
 psql -U postgres -d lore -f "data/cap02/hab_urbanas.sql"
@@ -206,18 +206,25 @@ psql -U postgres -d lore -f "data/cap02/hab_urbanas.sql"
 
 ![image](https://user-images.githubusercontent.com/88239150/179332178-48f8bf0c-a25d-4715-b776-fd7440bd04ea.png)
 
+## 3. Importar otros formatos vectoriales con el comando GDAL/OGR
 
-## 3. Importar otros formatos vectoriales con el comando GDAL/ogr
+GDAL/OGR (Geospatial Data Abstraction Library) es una biblioteca traductora de formatos de datos geoespaciales ráster y vectorial. Es libre y de código abierto. 
+
+OGR presenta algoritmos para el manejo de datos geoespaciales vectoriales, los mas importantes son:
+
+* **ogrinfo**: Obtiene la información de una fuente de datos soportada por OGR.
+* **ogr2ogr**: Conjunto de herramientas que permite la conversión de datos entre diferentes formatos. También puede realizar varias operaciones durante el proceso, como la selección espacial o de atributos, la reducción del conjunto de atributos, la configuración del sistema de coordenadas de salida o incluso la reproyección de las características durante la traducción.
+
+
 
 ## 4. Importar ráster con el comando raster2pgsql
 
-## 5. Exportar a Shapefiles con el comando pgsql2shp
-
-## 6. Exportar a otros formatos vectoriales con el comando GDAL/ogr
-
-## 7. Importar/Exportar datos con QGIS
+## 5. Importar datos con QGIS
 
 ## Referencias
 
 https://www.postgresql.org/docs/current/sql-copy.html
 
+https://postgis.net/docs/using_postgis_dbmanagement.html
+
+https://gdal.org/
