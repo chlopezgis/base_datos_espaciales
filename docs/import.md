@@ -213,6 +213,18 @@ GDAL/OGR (Geospatial Data Abstraction Library) es una biblioteca traductora de f
 OGR presenta los algoritmos para el manejo de datos geoespaciales vectoriales, siendo los mas importantes:
 
 * **ogrinfo**: Obtiene la información de una fuente de datos soportada por OGR.
+
+```
+ogrinfo [--help-general] [-ro] [-q] [-where restricted_where|@filename]
+               [-spat xmin ymin xmax ymax] [-geomfield field] [-fid fid]
+               [-sql statement|@filename] [-dialect sql_dialect] [-al] [-rl] [-so] [-fields={YES/NO}]
+               [-geom={YES/NO/SUMMARY}] [[-oo NAME=VALUE] ...]
+               [-nomd] [-listmdd] [-mdd domain|`all`]*
+               [-nocount] [-noextent] [-nogeomtype] [-wkt_format WKT1|WKT2|...]
+               [-fielddomain name]
+               datasource_name [layer [layer ...]]
+```
+
 * **ogr2ogr**: Conjunto de herramientas que permite la conversión de datos entre diferentes formatos. También puede realizar varias operaciones durante el proceso, como la selección espacial o de atributos, la reducción del conjunto de atributos, la configuración del sistema de coordenadas de salida o incluso la reproyección de las características durante la traducción.
 
 
