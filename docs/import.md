@@ -357,9 +357,11 @@ ogr2ogr
 **Paso 5**: Concluida la importación es necesario verificar que las capas se importaron correctamente:
 
 La vista de metadatos "geometry_column" debe estar actualizada con la información de estas 3 capas:
+
 ![image](https://user-images.githubusercontent.com/88239150/179661190-356e7414-49ae-4539-b080-054946563956.png)
 
 Realizar un conteo de las entidades cargadas. Debe ser igual a la cantidad de registros obtenido con el comando ogrinfo:
+
 ![image](https://user-images.githubusercontent.com/88239150/179660578-be1b76e3-a8e5-4689-a98f-39a7878bd397.png)
 
 ## 4. Importar ráster con el comando raster2pgsql
