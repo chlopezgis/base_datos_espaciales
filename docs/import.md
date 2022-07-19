@@ -1,6 +1,6 @@
 <center><h1>Importar datos a PostGIS</h1></center>
 
-Los datos son el componente mas importante de un SIG ya que sin estos es imposible realizar cualquier análisis. Actualmente, existen muchas fuentes de datos geoespaciales disponibles que podemos incorporar dentro de nuestra base de datos. Por este motivo, en este tutorial se mostrarán las principales herramientas y procesos para importar datos de diferentes formatos a PostGIS.
+Los datos son el componente mas importante de un SIG ya que sin estos es imposible realizar cualquier análisis. Actualmente, existen muchas fuentes públicas de datos geoespaciales que podemos integrar dentro de nuestra base de datos para análisis posteriores. Por tal motivo, este tutorial tiene como objetivo mostrar las principales herramientas y procesos para importar datos espaciales de diferentes formatos a PostGIS.
 
 ## Antes de iniciar...
 
@@ -275,25 +275,18 @@ ogr2ogr [--help-general] [-skipfailures] [-append] [-update]
 
 **PRACTICA**
 
-
-**Paso 1**: Iniciaremos explorando los archivos que se importaran
+**Paso 1**: Vamos a iniciar con la importación del archivo "sectores" que se encuentra en formato Shapefile. Con el comando **ogrinfo** exploraremos la información de la capa:
 
 ```
 ogrinfo -al -so D:\datos\cap02\sectores.shp
 ```
 ![image](https://user-images.githubusercontent.com/88239150/179657744-8ca40005-c732-43dd-b6b7-648c69e89fbc.png)
 
-```
-ogrinfo -al -so D:\datos\cap02\cartobase.gkp ejes_viales
-```
-![image](https://user-images.githubusercontent.com/88239150/179659508-a4acc1eb-e5e9-4def-8f98-7f1f87f4dcaa.png)
+Donde:
+* **-al**: Enumera todas las características de la capa
+* **-so**: Muestra información resumida como proyección, esquema, recuento de características y extensiones.
 
-```
-ogrinfo -al -so D:\datos\cap02\manzanas.geojson
-```
-![image](https://user-images.githubusercontent.com/88239150/179657887-9e4725b5-7cf7-4aac-b297-1f9bb47f1d66.png)
-
-Exportar
+**Paso 2**: Identificamos su sistema de referencia de coordenadas así como su tipo de geometría. Luego, con el comando **ogr2ogr** procedemos con la importación
 
 ```
 ogr2ogr -f PostgreSQL -a_srs EPSG:4326 PG:"host=localhost dbname=lore user=postgres password=postgres"
@@ -301,16 +294,38 @@ ogr2ogr -f PostgreSQL -a_srs EPSG:4326 PG:"host=localhost dbname=lore user=postg
 ```
 ![image](https://user-images.githubusercontent.com/88239150/179660055-4613428d-3355-4c71-b75c-db59ef109623.png)
 
+**Paso 3**: Repetimos los pasos con la capa de "ejes_viales" que se encuentra dentro del geopackage "cartobase"
+
+```
+ogrinfo -al -so D:\datos\cap02\cartobase.gkp ejes_viales
+```
+![image](https://user-images.githubusercontent.com/88239150/179659508-a4acc1eb-e5e9-4def-8f98-7f1f87f4dcaa.png)
+
+Importar a PostGIS
+
 ```
 ogr2ogr -f PostgreSQL -a_srs EPSG:4326 PG:"host=localhost dbname=lore user=postgres password=postgres"
 -lco SCHEMA=data -lco GEOMETRY_NAME=geom -nlt MULTILINESTRING -nln ejes_viales D:\datos\cap02\cartobase.gpkg ejes_viales
 ```
+
+**Paso 4**: Repetimos los pasos con la capa de "manzanas" que se encuentra en formato GeoJSON
+
+```
+ogrinfo -al -so D:\datos\cap02\manzanas.geojson
+```
+
+![image](https://user-images.githubusercontent.com/88239150/179657887-9e4725b5-7cf7-4aac-b297-1f9bb47f1d66.png)
+
+Importar a PostGIS
+
 ![image](https://user-images.githubusercontent.com/88239150/179660219-58819cfa-b5d0-433c-9635-0fead227a721.png)
 
 ```
 ogr2ogr -f PostgreSQL -a_srs EPSG:4326 PG:"host=localhost dbname=lore user=postgres password=postgres"
 -lco SCHEMA=data -lco GEOMETRY_NAME=geom -nln manzanas D:\datos\cap02\manzanas.geojson
 ```
+
+
 ![image](https://user-images.githubusercontent.com/88239150/179660394-760f7c03-8fec-4ac1-848f-4f2f16693f05.png)
 
 ![image](https://user-images.githubusercontent.com/88239150/179661190-356e7414-49ae-4539-b080-054946563956.png)
