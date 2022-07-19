@@ -35,6 +35,8 @@ Las opciones principales son:
     ENCODING 'encoding_name'
 ```
 
+**PRACTICA**
+
 A continuación, se detalla el flujo de trabajo a seguir para importar archivos CSV utilizando el comando COPY:
 
 **Paso 1.**  Con un editor de texto, inspeccionar la estructura del archivo que vamos a importar a PostgreSQL. Utilizaremos el archivo **comercios.csv** que contiene un listado de comercios levantados por COFOPRI.
@@ -171,6 +173,8 @@ Opciones:
 * **-Z**: Evita que se analicen las tablas.
 * **-?**: Muestra la ayuda
 
+**PRACTICA**
+
 Para este ejemplo, importaremos una capa de polígonos de Habilitaciones Urbanas (hab_urbanas.shp):
 
 **Paso 1.** Convertir el archivo Shapefile a SQL
@@ -269,7 +273,25 @@ ogr2ogr [--help-general] [-skipfailures] [-append] [-update]
         [-nomd] [-mo "META-TAG=VALUE"]* [-noNativeData]
 ```
 
-Para esta práctica 
+**PRACTICA**
+
+
+**Paso 1**: Iniciaremos explorando los archivos que se importaran
+
+```
+ogrinfo -al -so D:\datos\cap02\sectores.shp
+```
+![image](https://user-images.githubusercontent.com/88239150/179657744-8ca40005-c732-43dd-b6b7-648c69e89fbc.png)
+
+```
+ogrinfo -al -so D:\datos\cap02\cartobase.gkp ejes_viales
+```
+![image](https://user-images.githubusercontent.com/88239150/179659508-a4acc1eb-e5e9-4def-8f98-7f1f87f4dcaa.png)
+
+```
+ogrinfo -al -so D:\datos\cap02\manzanas.geojson
+```
+![image](https://user-images.githubusercontent.com/88239150/179657887-9e4725b5-7cf7-4aac-b297-1f9bb47f1d66.png)
 
 
 ## 4. Importar ráster con el comando raster2pgsql
