@@ -318,8 +318,6 @@ ogrinfo -al -so D:\datos\cap02\cartobase.gkp ejes_viales
 
 Importar a PostGIS
 
-![image](https://user-images.githubusercontent.com/88239150/179660219-58819cfa-b5d0-433c-9635-0fead227a721.png)
-
 ```
 ogr2ogr 
     -f PostgreSQL 
@@ -331,6 +329,7 @@ ogr2ogr
     -nln ejes_viales 
     D:\datos\cap02\cartobase.gpkg ejes_viales
 ```
+![image](https://user-images.githubusercontent.com/88239150/179660219-58819cfa-b5d0-433c-9635-0fead227a721.png)
 
 **Paso 4**: Repetir los pasos con la capa de "manzanas" que se encuentra en formato GeoJSON
 
