@@ -289,10 +289,24 @@ Donde:
 **Paso 2**: Identificamos su sistema de referencia de coordenadas así como su tipo de geometría. Luego, con el comando **ogr2ogr** procedemos con la importación
 
 ```
-ogr2ogr -f PostgreSQL -a_srs EPSG:4326 PG:"host=localhost dbname=lore user=postgres password=postgres"
--lco SCHEMA=data -lco GEOMETRY_NAME=geom -nln sectores D:\datos\cap02\sectores.shp
+ogr2ogr 
+    -f PostgreSQL 
+    -a_srs EPSG:4326 
+    PG:"host=localhost dbname=lore user=postgres password=postgres" 
+    -lco SCHEMA=data 
+    -lco GEOMETRY_NAME=geom 
+    -nln sectores 
+    D:\datos\cap02\sectores.shp
 ```
+
 ![image](https://user-images.githubusercontent.com/88239150/179660055-4613428d-3355-4c71-b75c-db59ef109623.png)
+
+Donde:
+* **-f**:
+* **-a_srs**:
+* **PG**:
+* **-lco**:
+* **-nln**:
 
 **Paso 3**: Repetimos los pasos con la capa de "ejes_viales" que se encuentra dentro del geopackage "cartobase"
 
@@ -304,8 +318,15 @@ ogrinfo -al -so D:\datos\cap02\cartobase.gkp ejes_viales
 Importar a PostGIS
 
 ```
-ogr2ogr -f PostgreSQL -a_srs EPSG:4326 PG:"host=localhost dbname=lore user=postgres password=postgres"
--lco SCHEMA=data -lco GEOMETRY_NAME=geom -nlt MULTILINESTRING -nln ejes_viales D:\datos\cap02\cartobase.gpkg ejes_viales
+ogr2ogr 
+    -f PostgreSQL 
+    -a_srs EPSG:4326 
+    PG:"host=localhost dbname=lore user=postgres password=postgres"
+    -lco SCHEMA=data 
+    -lco GEOMETRY_NAME=geom 
+    -nlt MULTILINESTRING 
+    -nln ejes_viales 
+    D:\datos\cap02\cartobase.gpkg ejes_viales
 ```
 
 **Paso 4**: Repetimos los pasos con la capa de "manzanas" que se encuentra en formato GeoJSON
@@ -321,8 +342,14 @@ Importar a PostGIS
 ![image](https://user-images.githubusercontent.com/88239150/179660219-58819cfa-b5d0-433c-9635-0fead227a721.png)
 
 ```
-ogr2ogr -f PostgreSQL -a_srs EPSG:4326 PG:"host=localhost dbname=lore user=postgres password=postgres"
--lco SCHEMA=data -lco GEOMETRY_NAME=geom -nln manzanas D:\datos\cap02\manzanas.geojson
+ogr2ogr 
+    -f PostgreSQL 
+    -a_srs EPSG:4326 
+    PG:"host=localhost dbname=lore user=postgres password=postgres"
+    -lco SCHEMA=data 
+    -lco GEOMETRY_NAME=geom 
+    -nln manzanas 
+    D:\datos\cap02\manzanas.geojson
 ```
 
 
