@@ -296,17 +296,20 @@ ogrinfo -al -so D:\datos\cap02\manzanas.geojson
 Exportar
 
 ```
-ogr2ogr -f PostgreSQL -a_srs EPSG:4326 PG:"host=localhost dbname=lore user=postgres password=postgres" -lco SCHEMA=data -lco GEOMETRY_NAME=geom -nln sectores D:\datos\cap02\sectores.shp
+ogr2ogr -f PostgreSQL -a_srs EPSG:4326 PG:"host=localhost dbname=lore user=postgres password=postgres"
+-lco SCHEMA=data -lco GEOMETRY_NAME=geom -nln sectores D:\datos\cap02\sectores.shp
 ```
 ![image](https://user-images.githubusercontent.com/88239150/179660055-4613428d-3355-4c71-b75c-db59ef109623.png)
 
 ```
-ogr2ogr -f PostgreSQL -a_srs EPSG:4326 PG:"host=localhost dbname=lore user=postgres password=postgres" -lco SCHEMA=data -lco GEOMETRY_NAME=geom -nlt MULTILINESTRING -nln ejes_viales D:\datos\cap02\cartobase.gpkg ejes_viales
+ogr2ogr -f PostgreSQL -a_srs EPSG:4326 PG:"host=localhost dbname=lore user=postgres password=postgres"
+-lco SCHEMA=data -lco GEOMETRY_NAME=geom -nlt MULTILINESTRING -nln ejes_viales D:\datos\cap02\cartobase.gpkg ejes_viales
 ```
 ![image](https://user-images.githubusercontent.com/88239150/179660219-58819cfa-b5d0-433c-9635-0fead227a721.png)
 
 ```
-ogr2ogr -f PostgreSQL -a_srs EPSG:4326 PG:"host=localhost dbname=lore user=postgres password=postgres" -lco SCHEMA=data -lco GEOMETRY_NAME=geom -nln manzanas D:\datos\cap02\manzanas.geojson
+ogr2ogr -f PostgreSQL -a_srs EPSG:4326 PG:"host=localhost dbname=lore user=postgres password=postgres"
+-lco SCHEMA=data -lco GEOMETRY_NAME=geom -nln manzanas D:\datos\cap02\manzanas.geojson
 ```
 ![image](https://user-images.githubusercontent.com/88239150/179660394-760f7c03-8fec-4ac1-848f-4f2f16693f05.png)
 
