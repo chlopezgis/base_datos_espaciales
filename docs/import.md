@@ -275,7 +275,7 @@ ogr2ogr [--help-general] [-skipfailures] [-append] [-update]
 
 **PRACTICA**
 
-**Paso 1**: Vamos a iniciar con la importación del archivo "sectores" que se encuentra en formato Shapefile. Con el comando **ogrinfo** exploraremos la información de la capa:
+**Paso 1**: Vamos a importar el archivo "sectores" que se encuentra en formato Shapefile. Con el comando **ogrinfo** explorar la información de la capa:
 
 ```
 ogrinfo -al -so D:\datos\cap02\sectores.shp
@@ -286,7 +286,7 @@ Donde:
 * **-al**: Enumera todas las características de la capa
 * **-so**: Muestra información resumida como proyección, esquema, recuento de características y extensiones.
 
-**Paso 2**: Identificamos su sistema de referencia de coordenadas así como su tipo de geometría. Luego, con el comando **ogr2ogr** procedemos con la importación
+**Paso 2**: Identificar el sistema de referencia de coordenadas, el tipo de geometría y la cantidad de registros. Luego, con el comando **ogr2ogr** proceder con la importación
 
 ```
 ogr2ogr 
@@ -302,13 +302,14 @@ ogr2ogr
 ![image](https://user-images.githubusercontent.com/88239150/179660055-4613428d-3355-4c71-b75c-db59ef109623.png)
 
 Donde:
-* **-f**:
-* **-a_srs**:
-* **PG**:
-* **-lco**:
-* **-nln**:
+* **-f \<nombre_de_formato\>**: Nombre del formato del archivo de salida.
+* **-a_srs \<srs_def\>**: Asignar un SRS de salida, pero sin reproyectar.
+* **PG:"\<conexión BD\>"**: Parámetro de conexión a la base de datos PostgreSQL
+* **-lco NOMBRE=VALOR**: Opción de creación de capas. En el ejemplo se indica el nombre del esquema y de la geocolumna.
+* **-nln \<nombre\>**: Nombre de la nueva capa.
+* **-nlt \<tipo\>**: Define el tipo de geometría para la capa creada
 
-**Paso 3**: Repetimos los pasos con la capa de "ejes_viales" que se encuentra dentro del geopackage "cartobase"
+**Paso 3**: Repetir los pasos con la capa de "ejes_viales" que se encuentra dentro del geopackage "cartobase"
 
 ```
 ogrinfo -al -so D:\datos\cap02\cartobase.gkp ejes_viales
@@ -331,7 +332,7 @@ ogr2ogr
     D:\datos\cap02\cartobase.gpkg ejes_viales
 ```
 
-**Paso 4**: Repetimos los pasos con la capa de "manzanas" que se encuentra en formato GeoJSON
+**Paso 4**: Repetir los pasos con la capa de "manzanas" que se encuentra en formato GeoJSON
 
 ```
 ogrinfo -al -so D:\datos\cap02\manzanas.geojson
@@ -354,10 +355,12 @@ ogr2ogr
 
 ![image](https://user-images.githubusercontent.com/88239150/179660394-760f7c03-8fec-4ac1-848f-4f2f16693f05.png)
 
-xxx
+**Paso 5**: Concluida la importación es necesario verificar que las capas se importaron correctamente:
 
+La vista de metadatos "geometry_column" debe estar actualizada con la información de estas 3 capas:
 ![image](https://user-images.githubusercontent.com/88239150/179661190-356e7414-49ae-4539-b080-054946563956.png)
 
+Realizar un conteo de las entidades cargadas. Debe ser igual a la cantidad de registros obtenido con el comando ogrinfo:
 ![image](https://user-images.githubusercontent.com/88239150/179660578-be1b76e3-a8e5-4689-a98f-39a7878bd397.png)
 
 ## 4. Importar ráster con el comando raster2pgsql
