@@ -293,6 +293,26 @@ ogrinfo -al -so D:\datos\cap02\manzanas.geojson
 ```
 ![image](https://user-images.githubusercontent.com/88239150/179657887-9e4725b5-7cf7-4aac-b297-1f9bb47f1d66.png)
 
+Exportar
+
+```
+ogr2ogr -f PostgreSQL -a_srs EPSG:4326 PG:"host=localhost dbname=lore user=postgres password=postgres" -lco SCHEMA=data -lco GEOMETRY_NAME=geom -nln sectores D:\datos\cap02\sectores.shp
+```
+![image](https://user-images.githubusercontent.com/88239150/179660055-4613428d-3355-4c71-b75c-db59ef109623.png)
+
+```
+ogr2ogr -f PostgreSQL -a_srs EPSG:4326 PG:"host=localhost dbname=lore user=postgres password=postgres" -lco SCHEMA=data -lco GEOMETRY_NAME=geom -nlt MULTILINESTRING -nln ejes_viales D:\datos\cap02\cartobase.gpkg ejes_viales
+```
+![image](https://user-images.githubusercontent.com/88239150/179660219-58819cfa-b5d0-433c-9635-0fead227a721.png)
+
+```
+ogr2ogr -f PostgreSQL -a_srs EPSG:4326 PG:"host=localhost dbname=lore user=postgres password=postgres" -lco SCHEMA=data -lco GEOMETRY_NAME=geom -nln manzanas D:\datos\cap02\manzanas.geojson
+```
+![image](https://user-images.githubusercontent.com/88239150/179660394-760f7c03-8fec-4ac1-848f-4f2f16693f05.png)
+
+![image](https://user-images.githubusercontent.com/88239150/179660507-2692dba5-34d1-4821-96d0-d44e97ee9a87.png)
+
+![image](https://user-images.githubusercontent.com/88239150/179660578-be1b76e3-a8e5-4689-a98f-39a7878bd397.png)
 
 ## 4. Importar ráster con el comando raster2pgsql
 
