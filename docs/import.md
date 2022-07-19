@@ -339,8 +339,6 @@ ogrinfo -al -so D:\datos\cap02\manzanas.geojson
 
 Importar a PostGIS
 
-![image](https://user-images.githubusercontent.com/88239150/179660219-58819cfa-b5d0-433c-9635-0fead227a721.png)
-
 ```
 ogr2ogr 
     -f PostgreSQL 
@@ -352,6 +350,9 @@ ogr2ogr
     D:\datos\cap02\manzanas.geojson
 ```
 
+![image](https://user-images.githubusercontent.com/88239150/179660219-58819cfa-b5d0-433c-9635-0fead227a721.png)
+
+xxx
 
 ![image](https://user-images.githubusercontent.com/88239150/179660394-760f7c03-8fec-4ac1-848f-4f2f16693f05.png)
 
