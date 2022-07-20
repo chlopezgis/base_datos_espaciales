@@ -1,6 +1,6 @@
 <center><h1>Importar datos a PostGIS</h1></center>
 
-Los datos son el componente mas importante de un SIG ya que sin estos es imposible realizar cualquier análisis. Actualmente, existen muchas fuentes públicas de datos geoespaciales que podemos integrar dentro de nuestra base de datos para análisis posteriores. Por tal motivo, este tutorial tiene como objetivo mostrar las principales herramientas y procesos para importar datos espaciales de diferentes formatos a PostGIS.
+Los datos son el componente mas importante de un SIG ya que sin estos es imposible realizar cualquier análisis. Actualmente, existen muchas fuentes públicas de datos geoespaciales que podemos integrar dentro de nuestra base de datos para análisis posteriores. Por tal motivo, este tutorial tiene como objetivo mostrar las principales herramientas y procesos para importar datos espaciales, de diferentes formatos, a PostGIS.
 
 ## Antes de iniciar...
 
@@ -354,17 +354,19 @@ ogr2ogr
 
 ![image](https://user-images.githubusercontent.com/88239150/179660394-760f7c03-8fec-4ac1-848f-4f2f16693f05.png)
 
-**Paso 5**: Concluida la importación es necesario verificar que las capas se importaron correctamente:
+**Paso 5**: Verificar que las capa se importaron correctamente.
 
-La vista de metadatos "geometry_column" debe estar actualizada con la información de estas 3 capas:
+Consultar a la vista de metadatos "geometry_column":
 
 ![image](https://user-images.githubusercontent.com/88239150/179661190-356e7414-49ae-4539-b080-054946563956.png)
 
-Realizar un conteo de las entidades cargadas. Debe ser igual a la cantidad de registros obtenido con el comando ogrinfo:
+Validar la cantidad de registro importados para cada capa:
 
 ![image](https://user-images.githubusercontent.com/88239150/179660578-be1b76e3-a8e5-4689-a98f-39a7878bd397.png)
 
 ## 4. Importar ráster con el comando raster2pgsql
+
+
 
 ## 5. Importar datos con QGIS
 
