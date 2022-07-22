@@ -318,7 +318,7 @@ Donde:
 
 #### 3.2. Importar GeoPackage
 
-**Paso 1**: Explorar la información de la capa **ejes_viales** que se encuentra dentro del geopackage "**cartobase.gpk**"
+**Paso 1**: Explorar la información de la capa **ejes_viales** que se encuentra dentro del geopackage "**cartobase.gpkg**"
 
 ```
 ogrinfo -al -so D:\datos\cap02\cartobase.gkp ejes_viales
@@ -376,6 +376,7 @@ ogr2ogr
 <p align="center"><img src = "https://user-images.githubusercontent.com/88239150/180440869-d7046e31-8ada-4f0a-8959-305616f8b170.png"/></p>
 
 ## 4. Importar ráster con el comando raster2pgsql
+
 
 
 
