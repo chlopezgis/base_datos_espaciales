@@ -5,11 +5,11 @@ Los datos son el componente mas importante de un SIG ya que sin estos es imposib
 ## Antes de iniciar...
 
 1. Crear una base de datos espacial (Ver capitulo [Crear base de datos espacial ](https://chlopezgis.github.io/base_datos_espaciales/creacion)).
-2. Los datos utilizados en la práctica provienen del portal [Geollaqta](http://catastro.cofopri.gob.pe/geollaqta/) de COFOPRI.
+2. Los datos utilizados en la práctica provienen del portal [Geollaqta](http://catastro.cofopri.gob.pe/geollaqta/) de COFOPRI. Puede descargar los datos usados en esta práctica del siguiente link.
 
 ## 1. Importar datos tabulares con el comando COPY
 
-El comando **COPY** nos permite mover datos entre archivos de texto plano (CSV o TXT) y tablas de PostrgeSQL. 
+El comando **COPY** permite mover datos entre archivos de texto plano (CSV o TXT) y tablas de PostrgeSQL. 
 
 ### COPY FROM
 
@@ -37,13 +37,13 @@ Las opciones principales son:
 
 **PRACTICA**
 
-A continuación, se detalla el flujo de trabajo a seguir para importar archivos CSV utilizando el comando COPY:
+Para esta práctica, importaremos un archivo de texto plano que contiene un listado de comercios (archivo **comercios.csv**). A continuación, se detalla el flujo a seguir:
 
-**Paso 1.**  Con un editor de texto, inspeccionar la estructura del archivo que va a importar a PostgreSQL. Para este ejericio, utilizaremos el archivo **comercios.csv** que contiene un listado de comercios de la zona de interes.
+**Paso 1.**  Con un editor de texto, inspeccionar la estructura del archivo de texto plano.
 
 <p align="center"><img src = "https://user-images.githubusercontent.com/88239150/178259319-4b5df6e8-54ec-4dfc-ab74-2100b49febc6.png"/></p>
 
-Observamos que el archivo se encuentra delimitado por punto y coma (;) y tiene los siguiente campos:
+El objetivo es identificar la estructura del archivo (campos y tipo de datos), la cantidad de registros y el delimitador de campo (;):
 
 * ID: Identificador de registro (Número entero)
 * UBIGEO: Código de ubigeo (6 carácteres)
