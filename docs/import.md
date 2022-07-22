@@ -45,18 +45,6 @@ Para esta práctica, importaremos un archivo de texto plano que contiene un list
 
 El objetivo es identificar la estructura del archivo (campos y tipo de datos), la cantidad de registros y el delimitador de campo (;):
 
-* ID: Identificador de registro (Número entero)
-* UBIGEO: Código de ubigeo (6 carácteres)
-* COD_SECT: Código de sector (2 carácteres)
-* COD_MZNA: Códio de manzana (3 carácteres)
-* COD_LOTE: Código de lote (3 carácteres)
-* COD_PISO: Código de piso (2 carácteres)
-* COD_EDIFICACION: Código de edificación (2 carácteres)
-* COD_USO: Código de uso comercial (5 carácteres)
-* DESC_USO: Descripción del uso comercial (Hasta 150 carácteres)
-* LON_X: Longitud (Númerico de 6 decimales)
-* LAT_Y: Latitud (Númerico de 6 decimales)
-
 **Paso 2.** Concetarse a la base de datos espacial. A continuación, se muestra como conectarse con el cliente **psql** desde el simbolo del sistema:
 
 ```
