@@ -43,9 +43,9 @@ Para esta práctica, importaremos un archivo de texto plano que contiene un list
 
 <p align="center"><img src = "https://user-images.githubusercontent.com/88239150/178259319-4b5df6e8-54ec-4dfc-ab74-2100b49febc6.png"/></p>
 
-El objetivo es identificar la estructura del archivo (campos y tipo de datos), la cantidad de registros y el delimitador de campo (;):
+El objetivo es identificar la estructura del archivo (campos y tipo de datos), la cantidad de registros (6,977) y el delimitador de campo (;):
 
-**Paso 2.** Concetarse a la base de datos espacial. A continuación, se muestra como conectarse con el cliente **psql** desde el simbolo del sistema:
+**Paso 2.** Conectarse a la base de datos espacial. Para esta práctica se utilizará el cliente **psql** desde el simbolo del sistema
 
 ```
 psql -U postgres lore
@@ -76,7 +76,7 @@ CREATE TABLE data.comercios(
 );
 ```
 
-**Paso 5.** Ejecutar el comando **COPY FROM**
+**Paso 5.** Importar el archivo ejecutando el comando **COPY FROM**
 
 ```
 COPY data.comercios(id
@@ -96,7 +96,7 @@ WITH CSV HEADER DELIMITER ';' ENCODING 'UTF-8';
 
 Nota: Si no es superusuario de la base de datos debe anteponer la barra invertida: **\COPY**
 
-**Paso 6.** Realizar una selección de la tabla para verificar que los registros se insertaron correctamente
+**Paso 6.** Verificar que los registros se insertaron correctamente
 
 Contar la cantidad de registros:
 
@@ -114,7 +114,7 @@ SELECT id, ubigeo, cod_uso, desc_uso, lon_x, lat_y FROM data.comercios LIMIT 10;
 
 <p align="center"><img src = "https://user-images.githubusercontent.com/88239150/178388694-5f50e1b0-afe5-4721-beb7-1909ebf48616.png"/></p>
 
-**Paso 7.** Ahora vamos a calcular la geometría a partir de las coordenadas de los comercios
+**Paso 7.** Calcular la geometría a partir de las coordenadas de los comercios
 
 ```
 UPDATE data.comercios SET geom = ST_GeomFromText('POINT('||lon_x||' '||lat_y||')', 4326);
