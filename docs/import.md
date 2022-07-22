@@ -114,32 +114,33 @@ SELECT id, ubigeo, cod_uso, desc_uso, lon_x, lat_y FROM data.comercios LIMIT 10;
 
 <p align="center"><img src = "https://user-images.githubusercontent.com/88239150/178388694-5f50e1b0-afe5-4721-beb7-1909ebf48616.png"/></p>
 
-**Paso 7.** Calcular la geometría a partir de las coordenadas de los comercios
+**Paso 7.** Construir la geometría a partir de las coordenadas.
 
 ```
 UPDATE data.comercios SET geom = ST_GeomFromText('POINT('||lon_x||' '||lat_y||')', 4326);
 ```
 
-**Paso 8.** Crear índice espacial
+**Paso 8.** Crear el índice espacial.
 
 ```
 CREATE INDEX i_comercios_geom ON data.comercios USING GIST (geom);
 ```
 
-**Paso 9.** Verificar que la geometría se creo correctamente. Utilizaremos el visualizador de PgAdmin4
+**Paso 9.** Verificar que la geometría se creo correctamente. Utilizaremos el visualizador de PgAdmin4.
 
 <p align="center"><img src = "https://user-images.githubusercontent.com/88239150/180436743-1b9cd2dc-2c74-4f09-8ef9-0e7a2fce4e4f.png"/></p>
 
 
 ## 2. Importar Shapefiles con el comando shp2pgsql
 
-La utilidad shp2pgsql es una herramienta de linea de comandos que permite convertir archivos Shapefiles a formato SQL, diseñado para la inserción en una base de datos espacial.
+La utilidad **shp2pgsql** es una herramienta de linea de comandos que permite convertir archivos Shapefiles a un formato SQL especialmente diseñado para su insercción en una base de datos espacial.
 
 **Sintaxis**
 
 ```
 shp2pgsql [<options>] <shapefile> [[<schema>.]<table>]
  ```
+
 Opciones:
 
 * **-s \[\<from\>:\]\<srid\>**: Establece el Sistema de Coordenadas. El valor predeterminado es 0. Opcionalmente reproyecta desde un SRID dado.
@@ -168,7 +169,7 @@ Opciones:
 
 **PRACTICA**
 
-Para este ejemplo, importaremos una capa de polígonos de Habilitaciones Urbanas (hab_urbanas.shp):
+Para esta práctica, importaremos una capa de polígonos de Habilitaciones Urbanas (hab_urbanas.shp). A continuación, se detalla el flujo a seguir:
 
 **Paso 1.** Convertir el archivo Shapefile a SQL
 
@@ -178,7 +179,7 @@ shp2pgsql -s 4326 -I -g geom "data/cap02/hab_urbanas.shp" data.hab_urbanas > "da
 
 <p align="center"><img src = "https://user-images.githubusercontent.com/88239150/179329727-2093f0e3-21a5-4a63-8679-53588e82f4e8.png"/></p>
 
-__Consideraciones__:
+__Donde__:
 * **-s**: Especificar el sistema de referencia WGS84 (EPSG 4326)
 * **-I**: Crear un índice espacial
 * **-g**: Especificar el nombre de la geocolumna como: "geom"
@@ -187,13 +188,13 @@ __Consideraciones__:
 * **\>**: Redirigir la salida del comando shp2pgsql a un archivo (en este caso un archivo sql)
 * **"data/cap02/hab_urbanas.sql"**: Indicar el nombre de salida del archivo SQL (incluye la ruta)
 
-**Paso 2.** Con un editor de texto inspeccionar el archivo "hab_urbanas.sql".
+**Paso 2.** Inspeccionar el archivo "hab_urbanas.sql" con un editor de texto.
 
 <p align="center"><img src = "https://user-images.githubusercontent.com/88239150/179329973-786c0c68-a1ef-40a8-8f21-069631fb83db.png"/></p>
 
 Como se observa, el archivo tiene las sentencias SQL para crear la tabla e insertar los registros en esta.
 
-**Paso 3.** Con el comando psql ejecutaremos el archivo SQL en la base de datos.
+**Paso 3.** Ejecutar el archivo SQL en la base de datos.
 
 ```
 psql -U postgres -d lore -f "data/cap02/hab_urbanas.sql"
@@ -201,7 +202,7 @@ psql -U postgres -d lore -f "data/cap02/hab_urbanas.sql"
 
 <p align="center"><img src = "https://user-images.githubusercontent.com/88239150/179330968-87dad381-5fe5-4f11-b37d-af5dfcd58122.png"/></p>
 
-**Paso 4.** Conectarse con PgAdmin para verificar graficamente que el shapefile se cargó correctamente
+**Paso 4.** Verificar graficamente que el archivo se cargó correctamente.
 
 <p align="center"><img src = "https://user-images.githubusercontent.com/88239150/179332178-48f8bf0c-a25d-4715-b776-fd7440bd04ea.png"/></p>
 
@@ -270,7 +271,9 @@ ogr2ogr [--help-general] [-skipfailures] [-append] [-update]
 
 **PRACTICA**
 
-**Paso 1**: Vamos a importar el archivo "sectores" que se encuentra en formato Shapefile. Con el comando **ogrinfo** explorar la información de la capa:
+Para esta práctica, importaremos a PostGIS 3 capas de diferentes formatos vectoriales (shapefile, geopackage y geojson). A continuación, se detalla el flujo a seguir:
+
+**Paso 1**: Explorar la información del archivo shapefile **sectores** con el comando **ogrinfo**:
 
 ```
 ogrinfo -al -so D:\datos\cap02\sectores.shp
@@ -282,7 +285,9 @@ Donde:
 * **-al**: Enumera todas las características de la capa
 * **-so**: Muestra información resumida como proyección, esquema, recuento de características y extensiones.
 
-**Paso 2**: Identificar el sistema de referencia de coordenadas, el tipo de geometría y la cantidad de registros. Luego, con el comando **ogr2ogr** proceder con la importación
+El objetivo es identificar el sistema de referencia de coordenadas, el tipo de geometría y la cantidad de registros. 
+
+**Paso 2.** Importar la capa utilizando el comando **ogr2ogr**.
 
 ```
 ogr2ogr 
@@ -305,7 +310,7 @@ Donde:
 * **-nln \<nombre\>**: Nombre de la nueva capa.
 * **-nlt \<tipo\>**: Define el tipo de geometría para la capa creada
 
-**Paso 3**: Repetir los pasos con la capa de "ejes_viales" que se encuentra dentro del geopackage "cartobase"
+**Paso 3**: Repetir los pasos con la capa de "**ejes_viales**" que se encuentra dentro del geopackage "**cartobase.gpk**"
 
 ```
 ogrinfo -al -so D:\datos\cap02\cartobase.gkp ejes_viales
@@ -329,7 +334,7 @@ ogr2ogr
 
 <p align="center"><img src = "https://user-images.githubusercontent.com/88239150/179660219-58819cfa-b5d0-433c-9635-0fead227a721.png"/></p>
 
-**Paso 4**: Repetir los pasos con la capa de "manzanas" que se encuentra en formato GeoJSON
+**Paso 4**: Repetir los pasos con la capa de "**manzanas**" que se encuentra en formato GeoJSON
 
 ```
 ogrinfo -al -so D:\datos\cap02\manzanas.geojson
