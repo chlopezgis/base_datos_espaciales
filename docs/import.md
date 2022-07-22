@@ -120,13 +120,16 @@ SELECT id, ubigeo, cod_uso, desc_uso, lon_x, lat_y FROM data.comercios LIMIT 10;
 UPDATE data.comercios SET geom = ST_GeomFromText('POINT('||lon_x||' '||lat_y||')', 4326);
 ```
 
-Verificar que el proceso se ejecuto correctamente:
+**Paso 8.** Crear índice espacial
 
 ```
-SELECT id, cod_uso, desc_uso, ST_AsText(geom) AS geom_text FROM data.comercios LIMIT 10;
+CREATE INDEX i_comercios_geom ON data.comercios USING GIST (geom);
 ```
 
-<p align="center"><img src = "https://user-images.githubusercontent.com/88239150/178389562-3c9d0474-8568-4266-b668-17208902fab6.png"/></p>
+**Paso 9.** Verificar que la geometría se creo correctamente. Utilizaremos el visualizador de PgAdmin4
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/88239150/180436743-1b9cd2dc-2c74-4f09-8ef9-0e7a2fce4e4f.png"/></p>
+
 
 ## 2. Importar Shapefiles con el comando shp2pgsql
 
