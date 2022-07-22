@@ -5,7 +5,7 @@ Los datos son el componente mas importante de un SIG ya que sin estos es imposib
 ## Antes de iniciar...
 
 1. Crear una base de datos espacial (Ver capitulo [Crear base de datos espacial ](https://chlopezgis.github.io/base_datos_espaciales/creacion)).
-2. Los datos utilizados en la práctica provienen del portal [Geollaqta] (http://catastro.cofopri.gob.pe/geollaqta/) de COFOPRI.
+2. Los datos utilizados en la práctica provienen del portal [Geollaqta](http://catastro.cofopri.gob.pe/geollaqta/) de COFOPRI.
 
 ## 1. Importar datos tabulares con el comando COPY
 
