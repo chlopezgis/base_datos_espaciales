@@ -35,7 +35,7 @@ Las opciones principales son:
     ENCODING 'encoding_name'
 ```
 
-**PRACTICA**
+### PRACTICA
 
 Para esta práctica, importaremos un archivo de texto plano que contiene un listado de comercios (archivo **comercios.csv**). A continuación, se detalla el flujo a seguir:
 
@@ -167,7 +167,7 @@ Opciones:
 * **-Z**: Evita que se analicen las tablas.
 * **-?**: Muestra la ayuda
 
-**PRACTICA**
+### PRACTICA
 
 Para esta práctica, importaremos una capa de polígonos de Habilitaciones Urbanas (hab_urbanas.shp). A continuación, se detalla el flujo a seguir:
 
@@ -269,11 +269,11 @@ ogr2ogr [--help-general] [-skipfailures] [-append] [-update]
         [-nomd] [-mo "META-TAG=VALUE"]* [-noNativeData]
 ```
 
-**PRACTICA**
+### PRACTICA
 
 Para esta práctica, importaremos a PostGIS 3 capas de diferentes formatos vectoriales (shapefile, geopackage y geojson). A continuación, se detalla el flujo a seguir:
 
-**1. __Importar Shapefile__**
+#### 1. Importar Shapefile
 
 **Paso 1.** Explorar la información del archivo **sectores** con el comando **ogrinfo**:
 
@@ -316,7 +316,7 @@ Donde:
 
 <p align="center"><img src = "https://user-images.githubusercontent.com/88239150/180440476-1fffa800-f8a6-46e9-a0f4-7c0d25f5e464.png"/></p>
 
-**2. __Importar GeoPackage__**
+#### 2. Importar GeoPackage
 
 **Paso 1**: Explorar la información de la capa **ejes_viales** que se encuentra dentro del geopackage "**cartobase.gpk**"
 
@@ -346,7 +346,7 @@ ogr2ogr
 
 <p align="center"><img src = "https://user-images.githubusercontent.com/88239150/180440704-fd9798ca-92e6-4cda-9d52-4f9444af6125.png"/></p>
 
-**3. Importar __GeoJSON__**
+#### 3. Importar GeoJSON
 
 **Paso 1**: Repetir los pasos con la capa de "**manzanas**" que se encuentra en formato GeoJSON
 
