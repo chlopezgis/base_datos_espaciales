@@ -379,8 +379,6 @@ ogr2ogr
 
 
 
-## 5. Importar datos con QGIS
-
 ## Referencias
 
 https://www.postgresql.org/docs/current/sql-copy.html
