@@ -273,7 +273,7 @@ ogr2ogr [--help-general] [-skipfailures] [-append] [-update]
 
 Para esta práctica, importaremos a PostGIS 3 capas de diferentes formatos vectoriales (shapefile, geopackage y geojson). A continuación, se detalla el flujo a seguir:
 
-**1. Importar archivo en formato Shapefile**
+**1. __Importar Shapefile__**
 
 **Paso 1.** Explorar la información del archivo **sectores** con el comando **ogrinfo**:
 
@@ -316,7 +316,7 @@ Donde:
 
 <p align="center"><img src = "https://user-images.githubusercontent.com/88239150/180440476-1fffa800-f8a6-46e9-a0f4-7c0d25f5e464.png"/></p>
 
-**2. Importar archivo en formato GeoPackage**
+**2. __Importar GeoPackage__**
 
 **Paso 1**: Explorar la información de la capa **ejes_viales** que se encuentra dentro del geopackage "**cartobase.gpk**"
 
@@ -346,7 +346,7 @@ ogr2ogr
 
 <p align="center"><img src = "https://user-images.githubusercontent.com/88239150/180440704-fd9798ca-92e6-4cda-9d52-4f9444af6125.png"/></p>
 
-**3. Importar archivo en formato GeoJSON**
+**3. Importar __GeoJSON__**
 
 **Paso 1**: Repetir los pasos con la capa de "**manzanas**" que se encuentra en formato GeoJSON
 
