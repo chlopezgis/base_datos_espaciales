@@ -202,7 +202,7 @@ psql -U postgres -d lore -f "data/cap02/hab_urbanas.sql"
 
 <p align="center"><img src = "https://user-images.githubusercontent.com/88239150/179330968-87dad381-5fe5-4f11-b37d-af5dfcd58122.png"/></p>
 
-**Paso 4.** Verificar graficamente que el archivo se cargó correctamente.
+**Paso 4.** Verificar que el archivo se importó correctamente.
 
 <p align="center"><img src = "https://user-images.githubusercontent.com/88239150/179332178-48f8bf0c-a25d-4715-b776-fd7440bd04ea.png"/></p>
 
@@ -273,7 +273,9 @@ ogr2ogr [--help-general] [-skipfailures] [-append] [-update]
 
 Para esta práctica, importaremos a PostGIS 3 capas de diferentes formatos vectoriales (shapefile, geopackage y geojson). A continuación, se detalla el flujo a seguir:
 
-**Paso 1**: Explorar la información del archivo shapefile **sectores** con el comando **ogrinfo**:
+**1. Importar archivo en formato Shapefile**
+
+**Paso 1.** Explorar la información del archivo **sectores** con el comando **ogrinfo**:
 
 ```
 ogrinfo -al -so D:\datos\cap02\sectores.shp
@@ -310,7 +312,13 @@ Donde:
 * **-nln \<nombre\>**: Nombre de la nueva capa.
 * **-nlt \<tipo\>**: Define el tipo de geometría para la capa creada
 
-**Paso 3**: Repetir los pasos con la capa de "**ejes_viales**" que se encuentra dentro del geopackage "**cartobase.gpk**"
+**Paso 3.** Verificar que el archivo se importó correctamente.
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/88239150/180440476-1fffa800-f8a6-46e9-a0f4-7c0d25f5e464.png"/></p>
+
+**2. Importar archivo en formato GeoPackage**
+
+**Paso 1**: Explorar la información de la capa **ejes_viales** que se encuentra dentro del geopackage "**cartobase.gpk**"
 
 ```
 ogrinfo -al -so D:\datos\cap02\cartobase.gkp ejes_viales
@@ -318,7 +326,7 @@ ogrinfo -al -so D:\datos\cap02\cartobase.gkp ejes_viales
 
 <p align="center"><img src = "https://user-images.githubusercontent.com/88239150/179659508-a4acc1eb-e5e9-4def-8f98-7f1f87f4dcaa.png"/></p>
 
-Importar a PostGIS
+**Paso 2.** Importar la capa utilizando el comando **ogr2ogr**.
 
 ```
 ogr2ogr 
@@ -334,7 +342,13 @@ ogr2ogr
 
 <p align="center"><img src = "https://user-images.githubusercontent.com/88239150/179660219-58819cfa-b5d0-433c-9635-0fead227a721.png"/></p>
 
-**Paso 4**: Repetir los pasos con la capa de "**manzanas**" que se encuentra en formato GeoJSON
+**Paso 3.** Verificar que el archivo se importó correctamente.
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/88239150/180440704-fd9798ca-92e6-4cda-9d52-4f9444af6125.png"/></p>
+
+**3. Importar archivo en formato GeoJSON**
+
+**Paso 1**: Repetir los pasos con la capa de "**manzanas**" que se encuentra en formato GeoJSON
 
 ```
 ogrinfo -al -so D:\datos\cap02\manzanas.geojson
@@ -342,7 +356,7 @@ ogrinfo -al -so D:\datos\cap02\manzanas.geojson
 
 <p align="center"><img src = "https://user-images.githubusercontent.com/88239150/179657887-9e4725b5-7cf7-4aac-b297-1f9bb47f1d66.png"/></p>
 
-Importar a PostGIS
+**Paso 2.** Importar la capa utilizando el comando **ogr2ogr**.
 
 ```
 ogr2ogr 
@@ -357,15 +371,9 @@ ogr2ogr
 
 <p align="center"><img src = "https://user-images.githubusercontent.com/88239150/179660394-760f7c03-8fec-4ac1-848f-4f2f16693f05.png"/></p>
 
-**Paso 5**: Verificar que las capa se importaron correctamente.
+**Paso 3.** Verificar que el archivo se importó correctamente.
 
-Consultar a la vista de metadatos "geometry_column":
-
-<p align="center"><img src = "https://user-images.githubusercontent.com/88239150/179661190-356e7414-49ae-4539-b080-054946563956.png"/></p>
-
-Validar la cantidad de registro importados para cada capa:
-
-<p align="center"><img src = "https://user-images.githubusercontent.com/88239150/179660578-be1b76e3-a8e5-4689-a98f-39a7878bd397.png"/></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/88239150/180440869-d7046e31-8ada-4f0a-8959-305616f8b170.png"/></p>
 
 ## 4. Importar ráster con el comando raster2pgsql
 
