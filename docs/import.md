@@ -377,8 +377,59 @@ ogr2ogr
 
 ## 4. Importar ráster con el comando raster2pgsql
 
+La utilidad **raster2pgsql** es una herramienta de linea de comandos que permite convertir archivos de formatos ráster compatibles con GDAL a SQL especialmente diseñado para su insercción en una base de datos espacial.
+
+**Sintaxis**
+
+```
+raster2pgsql [<options>] <raster>[ <raster>[ ...]] [[<schema>.]<table>]
+
+También se pueden especificar varios rásteres mediante comodines (*,?).
+ ```
+
+Opciones:
+
+* **-s \<srid\>**: Establece el Sistema de Coordenadas (SRID). El valor predeterminado es 0. Si no se proporciona el SRID o es 0, se verificarán los metadatos del ráster para determinar un SRID apropiado.
+* **-b \<banda\>**: Índice (Establecido en 1) de la banda para extraer del ráster. Para más de un índice de banda, sepárelos con una coma (,). Los rangos se pueden definir separándolos con un guión (-). Si no se especifica, se extraerán todas las bandas de ráster.
+* **-t \<tamaño de mosaico\>**: Corta el ráster en mosaicos para insertar uno por fila en la tabla. El **\<tamaño de mosaico\>** se expresa como ANCHO x ALTO. El **\<tamaño de mosaico\>** también puede ser "automático" para permitir que al cargar calcule un tamaño de mosaico apropiado usando el primer ráster y aplicarlo a todos los rásteres.
+* **-P**: Rellena los mosaicos más a la derecha y más abajo para garantizar que todos los mosaicos tengan el mismo ancho y alto.
+* **-R**: Registra el ráster como un ráster de sistema de archivos (out-db). Solo los metadatos del ráster y la ubicación de la ruta al ráster se almacenan en la base de datos (no los píxeles).
+* **(-d\|a\|c\|p)**: Estas son opciones mutuamente excluyentes:
+    * **-d**: Elimina la tabla, luego la vuelve a crear y la completa con los datos ráster actuales.
+    * **-a**: Agrega el ráster a la tabla actual. Debe ser exactamente el mismo esquema de tabla.
+    * **-c**: Crea una nueva tabla y la llena con los datos. Este es el valor predeterminado.
+    * **-p**: Modo preparar, solo crea la tabla.
+* **-f \<columnna\>**: Especifica el nombre de la columna ráster (principalmente útil en el modo de adición "-a").
+* **-F**: Agrega una columna con el nombre de archivo del ráster.
+* **-n \<columna\>**: Especifica el nombre de la columna de nombre de archivo. Implica -F.
+* **-I**: Crea un índice espacial GIST en la columna ráster. El comando ANALYZE se emitirá automáticamente para el índice creado.
+* **-M**: Ejecuta un VACUUM ANALYZE en la tabla de la columna ráster. Es útil cuando se agrega un ráster a una tabla existente con -a.
+* **-C**: Establece el conjunto estándar de restricciones en la columna de ráster después de cargar los rásteres. Algunas restricciones pueden fallar si uno o más rásteres violan la restricción.
+* **-x**: Desactiva la configuración de la restricción de extensión máxima. Solo se aplica si también se usa el indicador -C.
+* **-r**: Establece las restricciones (espacialmente único y mosaico de cobertura) para el bloqueo regular. Solo se aplica si también se usa el indicador -C.
+* **-T \<tablespace\>**: Especifica el tablespace para la nueva tabla. Tenga en cuenta que los índices (incluida la clave principal) seguirán utilizando el espacio de tabla predeterminado a menos que también se utilice el indicador -X.
+* **-X \<tablespace\>**: Especifica el tablespace para el nuevo índice de la tabla. Esto se aplica a la clave principal y al índice espacial si se usa el indicador -I.
+* **-N \<nodata\>**: Valor NODATA para usar en bandas sin un valor.
+* **-k**: Omite las comprobaciones de valor de NODATA para cada banda de ráster.
+* **-e**: Ejecuta cada declaración individualmente, no usa una transacción.
+* **-Y**: Usa sentencias COPY en lugar de sentencias INSERT.
+* **-G**: Imprime los formatos de trama GDAL admitidos.
+* **-?**: Muestra la ayuda.
+
+### PRACTICA
+
+Para esta práctica, importaremos un ráster xxx. A continuación, se detalla el flujo a seguir:
+
+**Paso 1.** Convertir el archivo ráster a SQL
+
+**Paso 2.** Inspeccionar el archivo sql con un editor de texto.
+
+Como se observa, el archivo tiene las sentencias SQL para crear la tabla e insertar los registros en esta.
+
+**Paso 3.** Ejecutar el archivo SQL en la base de datos.
 
 
+**Paso 4.** Verificar que el archivo se importó correctamente.
 
 ## Referencias
 
@@ -387,3 +438,5 @@ https://www.postgresql.org/docs/current/sql-copy.html
 https://postgis.net/docs/using_postgis_dbmanagement.html
 
 https://gdal.org/
+
+https://postgis.net/docs/using_raster_dataman.html#RT_Loading_Rasters
