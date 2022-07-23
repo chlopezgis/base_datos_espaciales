@@ -377,7 +377,7 @@ ogr2ogr
 
 ## 4. Importar ráster con el comando raster2pgsql
 
-La utilidad **raster2pgsql** es una herramienta de linea de comandos que permite convertir archivos de formatos ráster compatibles con GDAL a SQL especialmente diseñado para su insercción en una base de datos espacial.
+La utilidad **raster2pgsql** es una herramienta de linea de comandos que permite convertir archivos de formatos ráster, compatibles con GDAL, a SQL especialmente diseñado para su insercción en una base de datos espacial.
 
 **Sintaxis**
 
