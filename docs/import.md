@@ -187,7 +187,7 @@ shp2pgsql -s 4326 -I -g geom "data/cap02/hab_urbanas.shp" ^
 data.hab_urbanas > "data/cap02/hab_urbanas.sql"
 ```
 
-<p align="center"><img src = "https://user-images.githubusercontent.com/88239150/179329727-2093f0e3-21a5-4a63-8679-53588e82f4e8.png"/></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/88239150/180754414-063f6086-e9b1-4f7c-81d9-6a9c311007e6.png"/></p>
 
 __Donde__:
 * **-s**: Especificar el sistema de referencia WGS84 (EPSG 4326)
@@ -195,8 +195,9 @@ __Donde__:
 * **-g**: Especificar el nombre de la geocolumna como: "geom"
 * **"cap02/hab_urbanas.shp"**: Indicar el Shapefile de entrada (incluye la ruta)
 * **data.hab_urbanas**: Indicar el nombre con la que se creará la tabla SQL (incluye el esquema).
-* **\>**: Redirigir la salida del comando shp2pgsql a un archivo (en este caso un archivo sql)
-* **"data/cap02/hab_urbanas.sql"**: Indicar el nombre de salida del archivo SQL (incluye la ruta)
+* **\>**: Redirigir la salida del comando shp2pgsql a un archivo (en este caso un archivo sql).
+* **"data/cap02/hab_urbanas.sql"**: Indicar el nombre de salida del archivo SQL (incluye la ruta).
+* **^**: Permite dividir comandos largos en varias líneas.
 
 **Paso 2.** Inspeccionar el archivo "hab_urbanas.sql" con un editor de texto.
 
