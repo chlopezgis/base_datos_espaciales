@@ -467,14 +467,7 @@ Consultar la vista de metadatos ráster
 
 Visualizar el raster con Qgis
 
-<p align="center"><img src = "https://user-images.githubusercontent.com/88239150/180766298-ba481b0d-abdf-4241-82b7-999423fee21a.png"/></p>
-
-
-
-
-
-
-
+<p align="center"><img src = "https://user-images.githubusercontent.com/88239150/180767923-08b18cb1-9bb6-4403-bc0a-bb47d46c7db0.png"/></p>
 
 ## Referencias
 
