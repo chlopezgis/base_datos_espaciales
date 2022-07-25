@@ -125,13 +125,14 @@ FROM data.comercios LIMIT 10;
 
 ```
 UPDATE data.comercios SET geom =
-            ST_GeomFromText('POINT('||lon_x||' '||lat_y||')', 4326);
+ST_GeomFromText('POINT('||lon_x||' '||lat_y||')', 4326);
 ```
 
 **Paso 8.** Crear el índice espacial.
 
 ```
-CREATE INDEX i_comercios_geom ON data.comercios USING GIST (geom);
+CREATE INDEX i_comercios_geom ON 
+data.comercios USING GIST (geom);
 ```
 
 **Paso 9.** Verificar que la geometría se creo correctamente. Utilizaremos el visualizador de PgAdmin4.
@@ -182,7 +183,8 @@ Para esta práctica, importaremos una capa de polígonos de Habilitaciones Urban
 **Paso 1.** Convertir el archivo Shapefile a SQL
 
 ```
-shp2pgsql -s 4326 -I -g geom "data/cap02/hab_urbanas.shp" data.hab_urbanas > "data/cap02/hab_urbanas.sql"
+shp2pgsql -s 4326 -I -g geom "data/cap02/hab_urbanas.shp" ^
+data.hab_urbanas > "data/cap02/hab_urbanas.sql"
 ```
 
 <p align="center"><img src = "https://user-images.githubusercontent.com/88239150/179329727-2093f0e3-21a5-4a63-8679-53588e82f4e8.png"/></p>
