@@ -303,17 +303,17 @@ El objetivo es identificar el sistema de referencia de coordenadas, el tipo de g
 **Paso 2.** Importar la capa utilizando el comando **ogr2ogr**.
 
 ```
-ogr2ogr 
-    -f PostgreSQL 
-    -a_srs EPSG:4326 
-    PG:"host=localhost dbname=lore user=postgres password=postgres" 
-    -lco SCHEMA=data 
-    -lco GEOMETRY_NAME=geom 
-    -nln sectores 
+ogr2ogr ^
+    -f PostgreSQL ^
+    -a_srs EPSG:4326 ^
+    PG:"host=localhost dbname=lore user=postgres password=postgres" ^
+    -lco SCHEMA=data ^
+    -lco GEOMETRY_NAME=geom ^
+    -nln sectores ^
     D:\datos\cap02\sectores.shp
 ```
 
-<p align="center"><img src = "https://user-images.githubusercontent.com/88239150/179660055-4613428d-3355-4c71-b75c-db59ef109623.png"/></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/88239150/180756420-4221bdc7-7204-414f-9f88-dd11fd55ec86.png"/></p>
 
 Donde:
 * **-f \<nombre_de_formato\>**: Nombre del formato del archivo de salida.
