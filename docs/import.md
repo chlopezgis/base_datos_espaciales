@@ -29,10 +29,10 @@ COPY table_name [ ( column_name [, ...] ) ]
 Las opciones principales son:
 
 ```
-    FORMAT format_name
-    DELIMITER 'delimiter_character'
-    HEADER [ boolean ]
-    ENCODING 'encoding_name'
+FORMAT format_name
+DELIMITER 'delimiter_character'
+HEADER [ boolean ]
+ENCODING 'encoding_name'
 ```
 
 ### PRACTICA
