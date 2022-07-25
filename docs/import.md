@@ -340,14 +340,14 @@ ogrinfo -al -so D:\datos\cap02\cartobase.gkp ejes_viales
 **Paso 2.** Importar la capa utilizando el comando **ogr2ogr**.
 
 ```
-ogr2ogr 
-    -f PostgreSQL 
-    -a_srs EPSG:4326 
-    PG:"host=localhost dbname=lore user=postgres password=postgres"
-    -lco SCHEMA=data 
-    -lco GEOMETRY_NAME=geom 
-    -nlt MULTILINESTRING 
-    -nln ejes_viales 
+ogr2ogr ^
+    -f PostgreSQL ^
+    -a_srs EPSG:4326 ^
+    PG:"host=localhost dbname=lore user=postgres password=postgres" ^
+    -lco SCHEMA=data ^
+    -lco GEOMETRY_NAME=geom ^
+    -nlt MULTILINESTRING ^
+    -nln ejes_viales ^
     D:\datos\cap02\cartobase.gpkg ejes_viales
 ```
 
@@ -370,13 +370,13 @@ ogrinfo -al -so D:\datos\cap02\manzanas.geojson
 **Paso 2.** Importar la capa utilizando el comando **ogr2ogr**.
 
 ```
-ogr2ogr 
-    -f PostgreSQL 
-    -a_srs EPSG:4326 
-    PG:"host=localhost dbname=lore user=postgres password=postgres"
-    -lco SCHEMA=data 
-    -lco GEOMETRY_NAME=geom 
-    -nln manzanas 
+ogr2ogr ^
+    -f PostgreSQL ^
+    -a_srs EPSG:4326 ^
+    PG:"host=localhost dbname=lore user=postgres password=postgres" ^
+    -lco SCHEMA=data ^
+    -lco GEOMETRY_NAME=geom ^ 
+    -nln manzanas ^
     D:\datos\cap02\manzanas.geojson
 ```
 
