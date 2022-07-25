@@ -429,18 +429,39 @@ Opciones:
 
 ### PRACTICA
 
-Para esta práctica, importaremos un ráster xxx. A continuación, se detalla el flujo a seguir:
+Para esta práctica, importaremos un Modelo de Elevación Digital (DEM) descargado del geoservidor del MINAM. A continuación, se detalla el flujo a seguir:
 
-**Paso 1.** Convertir el archivo ráster a SQL
+**Paso 1.** Explorar el DEM con su GIS favorito. Para este ejemplo utilizaremos GDAL y QGIS
 
-**Paso 2.** Inspeccionar el archivo sql con un editor de texto.
+Consultar los información con **gdalinfo**:
+
+```
+gdalinfo D:\datos\cap02\ASTGTM_S07W077_dem.tif
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/88239150/180761256-140ac713-b27a-4c6c-94b5-93be6fd6d7cf.png"/></p>
+
+De la imagen podemos observar:
+
+* Contolador: GTiff/GeoTIFF
+* Tamaño: 3601X3601
+* Bandas: 1 banda de tipo entero.
+* Coordenadas: WGS 84 - EPSG:4326
+
+Visualizar la capa en QGIS
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/88239150/180759341-e69e0771-d0d3-4d39-9f2c-a3825185bb87.png"/></p>
+
+**Paso 2.** Convertir el archivo ráster a SQL
+
+**Paso 3.** Inspeccionar el archivo sql con un editor de texto.
 
 Como se observa, el archivo tiene las sentencias SQL para crear la tabla e insertar los registros en esta.
 
-**Paso 3.** Ejecutar el archivo SQL en la base de datos.
+**Paso 4.** Ejecutar el archivo SQL en la base de datos.
 
 
-**Paso 4.** Verificar que el archivo se importó correctamente.
+**Paso 5.** Verificar que el archivo se importó correctamente.
 
 ## Referencias
 
