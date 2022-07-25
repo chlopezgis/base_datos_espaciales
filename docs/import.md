@@ -124,7 +124,8 @@ FROM data.comercios LIMIT 10;
 **Paso 7.** Construir la geometría a partir de las coordenadas.
 
 ```
-UPDATE data.comercios SET geom = ST_GeomFromText('POINT('||lon_x||' '||lat_y||')', 4326);
+UPDATE data.comercios SET geom =
+            ST_GeomFromText('POINT('||lon_x||' '||lat_y||')', 4326);
 ```
 
 **Paso 8.** Crear el índice espacial.
