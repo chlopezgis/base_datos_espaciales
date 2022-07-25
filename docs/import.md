@@ -13,7 +13,7 @@ El comando **COPY** permite mover datos entre archivos de texto plano (CSV o TXT
 
 ### COPY FROM
 
-* Permite copiar los datos de un archivo de texto plano a una tabla en PostgreSQL. 
+* Permite copiar los datos de un archivo de texto plano a una tabla de PostgreSQL. 
 * Cada campo del archivo se inserta, en orden, en la columna especificada.
 * Las columnas de la tabla no especificadas recibirán sus valores predeterminados.
 
