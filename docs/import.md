@@ -9,7 +9,7 @@ Los datos son el componente mas importante de un SIG ya que sin estos es imposib
 
 ## 1. Importar datos tabulares con el comando COPY
 
-El comando **COPY** permite mover datos entre archivos de texto plano (CSV o TXT) y tablas de PostrgeSQL. 
+El comando **COPY** permite mover datos entre archivos de texto plano (CSV o TXT) y tablas de PostgreSQL. 
 
 ### COPY FROM
 
