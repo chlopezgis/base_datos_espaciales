@@ -109,7 +109,14 @@ SELECT COUNT(*) AS cantidad FROM data.comercios;
 Mostrar los primeros 10 registros:
 
 ```
-SELECT id, ubigeo, cod_uso, desc_uso, lon_x, lat_y FROM data.comercios LIMIT 10;
+SELECT 
+        id
+        , ubigeo
+        , cod_uso
+        , desc_uso
+        , lon_x
+        , lat_y
+FROM data.comercios LIMIT 10;
 ```
 
 <p align="center"><img src = "https://user-images.githubusercontent.com/88239150/178388694-5f50e1b0-afe5-4721-beb7-1909ebf48616.png"/></p>
