@@ -431,9 +431,7 @@ Opciones:
 
 Para esta práctica, importaremos un Modelo de Elevación Digital (DEM) descargado del geoservidor del MINAM. A continuación, se detalla el flujo a seguir:
 
-**Paso 1.** Explorar el DEM con su GIS favorito. Para este ejemplo utilizaremos GDAL y QGIS
-
-Consultar los información con **gdalinfo**:
+**Paso 1.** Explorar el DEM con su GIS favorito. Para este ejemplo, consultaremos su información utilizando **gdalinfo**:
 
 ```
 gdalinfo D:\datos\cap02\ASTGTM_S07W077_dem.tif
@@ -441,27 +439,34 @@ gdalinfo D:\datos\cap02\ASTGTM_S07W077_dem.tif
 
 <p align="center"><img src = "https://user-images.githubusercontent.com/88239150/180761256-140ac713-b27a-4c6c-94b5-93be6fd6d7cf.png"/></p>
 
-De la imagen podemos observar:
+De la imagen observamos:
 
 * Contolador: GTiff/GeoTIFF
 * Tamaño: 3601X3601
 * Bandas: 1 banda de tipo entero.
 * Coordenadas: WGS 84 - EPSG:4326
 
-Visualizar la capa en QGIS
-
-<p align="center"><img src = "https://user-images.githubusercontent.com/88239150/180759341-e69e0771-d0d3-4d39-9f2c-a3825185bb87.png"/></p>
-
 **Paso 2.** Convertir el archivo ráster a SQL
 
-**Paso 3.** Inspeccionar el archivo sql con un editor de texto.
-
-Como se observa, el archivo tiene las sentencias SQL para crear la tabla e insertar los registros en esta.
+```
+raster2pgsql -s 4326 -I -C -F -M -t 100x100 ^
+D:\datos\cap02\ASTGTM_S07W077_dem.tif data.dem_s07w007 > D:\datos\cap02\dem.sql
+```
 
 **Paso 4.** Ejecutar el archivo SQL en la base de datos.
 
+```
+psql -U postgres -d lore -f "D:\datos\cap02\dem.sql"
+```
 
 **Paso 5.** Verificar que el archivo se importó correctamente.
+
+Consultar la vista de metadatos ráster
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/88239150/180764628-1c88a70c-89c7-49fd-91bf-e7cf02a7968f.png"/></p>
+
+
+
 
 ## Referencias
 
